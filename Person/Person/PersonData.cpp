@@ -46,8 +46,8 @@ int main()
 
 void ReadInPersonData()
 {
-    fstream personData(file, ios::in | ios::binary);
-    personData.read(reinterpret_cast<char *>(&person),
+    fstream personData(file, ios::in | ios::binary); // stream to read data from file.
+    personData.read(reinterpret_cast<char *>(&person), // data is read into person class.
                                       sizeof(person));
     while(!personData.eof())
     {
@@ -76,14 +76,15 @@ void ReadInPersonData()
 
 void CreatePerson()
 {
+    // creating space in each memeber of the structs.
     person.basic = {"","","",""};
     person.hair = {"","",""};
     person.facialHair = {"",""};
     person.accessories = {"","","",""};
     
-    fstream personData(file, ios::out | ios::binary);
+    fstream personData(file, ios::out | ios::binary); // stream to write data to a file.
     
-    for (int i=0; i<NUM_PEOPLE; i++)
+    for (int i=0; i<NUM_PEOPLE; i++) // NUM_PEOPLE - can be changed to the desired amount of people we want to describe.
     {
         cout << "Now writing person " << i << endl;
         personData.write(reinterpret_cast<char *>(&person),sizeof(person));
@@ -92,16 +93,17 @@ void CreatePerson()
     personData.close();
 }
 
+// Can go through one by one giving a Person's decription by inputting the diesired person you want to provide data with.
 void AddDataToPerson()
 {
     int i;
     // Open the file in binary mode for input and output
-    fstream personData(file, ios::in | ios::out | ios::binary);
+    fstream personData(file, ios::in | ios::out | ios::binary); // stream to read and write to file.
    // Get the record number of the desired record.
     cout << "Which person do you want to edit? ";
    cin >> i;
     
-   // Move to the record and read it.
+   // Move to the person selected and read it.
     personData.seekg(i * sizeof(person), ios::beg);
     personData.read(reinterpret_cast<char *>(&person),
                                         sizeof(person));
@@ -126,7 +128,7 @@ void AddDataToPerson()
          << " Earrings: " << person.accessories.earrings << endl << endl;
 
 
-    // Get the new record data.
+    // Get the new person data.
     cout << "Enter the new data:\n";
     cout << "Person Name: ";
     cin.ignore();
@@ -160,7 +162,7 @@ void AddDataToPerson()
     // Move back to the beginning of this person's position.
     personData.seekp(i * sizeof(person), ios::beg);
 
-    // Write the new record over the current record.
+    // Write the new person over the current person.
     personData.write(reinterpret_cast<char *>(&person),
                                          sizeof(person));
 }
