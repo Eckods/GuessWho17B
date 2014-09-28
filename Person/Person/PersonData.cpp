@@ -16,16 +16,16 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib> 
-#include <vector>
+#include <stdlib.h>
 #include "Person.h"
 using namespace std;
 
 
-void CreatePerson(); // creates a txt file that contains specifed list of people from the person class
-void ReadInPersonData(); // read from text file the list of people and output to console
+void CreatePeople(); // creates a txt file that contains specifed list of people from the person class
+void DisplayPeople(); // read from text file the list of people and output to console
 void AddDataToPerson(); // allows you to select which person you want edit and updates the changes to file
+void Prompt(); // Allows to display or add data to a person continuously
 
-vector<Person> people;
 Person person;
 const string file = "PersonData";
 const int NUM_PEOPLE = 10;
@@ -37,21 +37,60 @@ int main()
     // second comment CreatePerson then uncomment ReadInPersonData then run it to see the list of people. It will only contain numbers for now (just place holders)
     // third comment ReadInPersonData then uncomment AddDataToPerson then run it to add data to a person of ur choice
     
-    //CreatePerson();
-    //ReadInPersonData();
+    //CreatePeople();
+    //DisplayPeople();
     //AddDataToPerson();
+    //Prompt();
     
     return 0;
 }
 
-void ReadInPersonData()
+void Prompt()
+{
+    DisplayPeople();
+    bool quit = false;
+    int choice = 0;
+    while(!quit)
+    {
+        cout << "1) Add data to a person\n"
+             << "2) Display People\n"
+             << "3) Quit\n"
+             << "choice: ";
+        cin  >> choice;
+        
+        switch(choice)
+        {
+            case 1:
+                //system("clear"); // doesnt work in Xcode
+                AddDataToPerson();
+                break;
+            case 2:
+                //system("clear"); // doesnt work in Xcode
+                DisplayPeople();
+                break;
+            case 3:
+                quit = true;
+                break;
+        }
+    }
+}
+
+void DisplayPeople()
 {
     fstream personData(file, ios::in | ios::binary); // stream to read data from file.
+    if (personData.fail())
+    {
+        cout << "File failed....\n";
+        exit(1);
+    }
     personData.read(reinterpret_cast<char *>(&person), // data is read into person class.
                                       sizeof(person));
+    int personCount = 0;
     while(!personData.eof())
     {
-        cout << "Person Name: " << person.basic.name << endl
+        personCount++;
+        cout << "Person " << personCount
+             << "\nName: " << person.basic.name << endl
              << "Gender: " << person.basic.gender
              << " Skin Color: " << person.basic.skinColor
              << " Eye Color: " << person.basic.eyeColor << endl;
@@ -71,10 +110,11 @@ void ReadInPersonData()
         
         personData.read(reinterpret_cast<char *>(&person),sizeof(person));
     }
+    personData.close();
 }
 
 
-void CreatePerson()
+void CreatePeople()
 {
     // creating space in each memeber of the structs.
     person.basic = {"","","",""};
@@ -83,6 +123,11 @@ void CreatePerson()
     person.accessories = {"","","",""};
     
     fstream personData(file, ios::out | ios::binary); // stream to write data to a file.
+    if (personData.fail())
+    {
+        cout << "File failed....\n";
+        exit(1);
+    }
     
     for (int i=0; i<NUM_PEOPLE; i++) // NUM_PEOPLE - can be changed to the desired amount of people we want to describe.
     {
@@ -90,6 +135,7 @@ void CreatePerson()
         personData.write(reinterpret_cast<char *>(&person),sizeof(person));
         
     }
+    cout << endl;
     personData.close();
 }
 
@@ -99,10 +145,26 @@ void AddDataToPerson()
     int i;
     // Open the file in binary mode for input and output
     fstream personData(file, ios::in | ios::out | ios::binary); // stream to read and write to file.
-   // Get the record number of the desired record.
-    cout << "Which person do you want to edit? ";
-   cin >> i;
+    if (personData.fail())
+    {
+        cout << "File failed....\n";
+        exit(1);
+    }
+    bool correctInput = false;
+    do {
+       // Get the person number of the desired record.
+        cout << "Which person do you want to edit <1-10>? ";
+       cin >> i;
+        if (i > 0 && i <= NUM_PEOPLE)
+            correctInput = true;
+    }while(!correctInput);
     
+    cout << endl;
+    
+    if (i == 1)
+        i--;
+    else if (i == NUM_PEOPLE)
+        i--;
    // Move to the person selected and read it.
     personData.seekg(i * sizeof(person), ios::beg);
     personData.read(reinterpret_cast<char *>(&person),
@@ -158,6 +220,7 @@ void AddDataToPerson()
     cin  >> person.accessories.glasses;
     cout << "Earrings: ";
     cin  >> person.accessories.earrings;
+    cout << endl;
 
     // Move back to the beginning of this person's position.
     personData.seekp(i * sizeof(person), ios::beg);
@@ -165,4 +228,5 @@ void AddDataToPerson()
     // Write the new person over the current person.
     personData.write(reinterpret_cast<char *>(&person),
                                          sizeof(person));
+    personData.close();
 }
