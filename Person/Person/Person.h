@@ -4,7 +4,7 @@
 //
 //  Created by Kory Brown on 9/26/14.
 //  Copyright (c) 2014 AlphA. All rights reserved.
-//
+
 
 #ifndef GuessWho_Person_h
 #define GuessWho_Person_h

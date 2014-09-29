@@ -155,8 +155,8 @@ void AddDataToPerson()
         cout << "File failed....\n";
         exit(1);
     }
-        do {
-       // Get the person number of the desired record.
+    do {
+        // Get the person number of the desired record.
         cout << "Which person do you want to edit <1-10>? ";
         cin >> i;
         if (i > 0 && i <= NUM_PEOPLE)
@@ -169,38 +169,149 @@ void AddDataToPerson()
         i--;
     else if (i == NUM_PEOPLE)
         i--;
-   // Move to the person selected and read it.
+    // Move to the person selected and read it.
     personData.seekg(i * sizeof(person), ios::beg);
     personData.read(reinterpret_cast<char *>(&person),
-                                        sizeof(person));
-
+                    sizeof(person));
+    
     // Display the person contents.
     cout << "Person Name: " << person.basic.name << endl
-         << "Gender: " << person.basic.gender
-         << " Skin Color: " << person.basic.skinColor
-         << " Eye Color: " << person.basic.eyeColor << endl;
+    << "Gender: " << person.basic.gender
+    << " Skin Color: " << person.basic.skinColor
+    << " Eye Color: " << person.basic.eyeColor << endl;
     
     cout << "Hair Type: " << person.hair.hairType
-         << " Hair Color: " << person.hair.hairColor
-         << " Hair Length: " << person.hair.hairLength << endl;
+    << " Hair Color: " << person.hair.hairColor
+    << " Hair Length: " << person.hair.hairLength << endl;
     
     cout << "Facial Hair Type: " << person.facialHair.facialHairType
-         << " Facial Hair Color: " << person.facialHair.facialHairColor
-         << endl;
+    << " Facial Hair Color: " << person.facialHair.facialHairColor
+    << endl;
     
     cout << "Hat: " << person.accessories.hat
-         << " HatColor: " << person.accessories.hatColor
-         << " Glasses: " << person.accessories.glasses
-         << " Earrings: " << person.accessories.earrings << endl << endl;
-
-
-
-
+    << " HatColor: " << person.accessories.hatColor
+    << " Glasses: " << person.accessories.glasses
+    << " Earrings: " << person.accessories.earrings << endl << endl;
+    
+    
+    // Get the new person data.
+    char answer = NULL;
+    cout << "Enter the new data:\n";
+    cout << "Person Name: ";
+    cin.ignore();
+    getline(cin, person.basic.name);
+    cout << "Gender: ";
+    //cin.ignore();
+    cin  >> person.basic.gender;
+    cout << "Skin Color: ";
+    cin  >> person.basic.skinColor;
+    cout << "Eye Color: ";
+    cin  >> person.basic.eyeColor;
+    cout << "Hair Type: ";
+    cin >> person.hair.hairType;
+    cout << "Hair Color: ";
+    cin  >> person.hair.hairColor;
+    cout << "Hair Length: ";
+    cin  >> person.hair.hairLength;
+    do
+    {
+        cout << "Facial Hair <Y or N>: ";
+        cin >> answer;
+        if ( tolower(answer)== 'y')
+        {
+            correctInput = true;
+            person.facialHair.facialHair = true;
+        }
+        else if (tolower(answer) == 'n')
+        {
+            correctInput = true;
+            person.facialHair.facialHair = false;
+        }
+        else
+            correctInput = false;
+    }while(!correctInput);
+    correctInput = false;
+    answer = NULL;
+    if(person.facialHair.facialHair == true)
+    {
+        cout << "Facial hair type: ";
+        cin  >> person.facialHair.facialHairType;
+        cout << "Facial Hair Color: ";
+        cin  >> person.facialHair.facialHairColor;
+    }
+    else
+    {
+        person.facialHair.facialHairType = "none";
+        person.facialHair.facialHairColor = "none";
+    }
+    do
+    {
+        cout << "Hat <Y or N>: ";
+        cin >> answer;
+        if ( tolower(answer)== 'y')
+        {
+            correctInput = true;
+            person.accessories.hat = true;
+        }
+        else if(tolower(answer) == 'n')
+        {
+            correctInput = true;
+            person.accessories.hat = false;
+        }
+        else
+            correctInput = false;
+    }while(!correctInput);
+    if (person.accessories.hat == true)
+    {
+        cout << "HatColor: ";
+        cin  >> person.accessories.hatColor;
+    }
+    else
+        person.accessories.hatColor = "none";
+    do
+    {
+        cout << "Glasses <Y or N>: ";
+        cin >> answer;
+        if ( tolower(answer)== 'y')
+        {
+            correctInput = true;
+            person.accessories.glasses = true;
+        }
+        else if (tolower(answer) == 'n')
+        {
+            correctInput = true;
+            person.accessories.glasses = false;
+        }
+        else
+            correctInput = false;
+    }while(!correctInput);
+    answer = NULL;
+    do
+    {
+        cout << "Earrings <Y or N>: ";
+        cin >> answer;
+        if ( tolower(answer)== 'y')
+        {
+            correctInput = true;
+            person.accessories.earrings = true;
+        }
+        else if(tolower(answer) == 'n')
+        {
+            correctInput = true;
+            person.accessories.earrings = false;
+        }
+        else
+            correctInput = false;
+    }while(!correctInput);
+    answer = NULL;
+    cout << endl;
+    
     // Move back to the beginning of this person's position.
     personData.seekp(i * sizeof(person), ios::beg);
-
+    
     // Write the new person over the current person.
     personData.write(reinterpret_cast<char *>(&person),
-                                         sizeof(person));
+                     sizeof(person));
     personData.close();
 }
+
