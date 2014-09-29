@@ -60,7 +60,6 @@ private:
 //    string getHairFeature();
 //    string getFacialHairFeature();
 //    string getAccessoriesFeature();
-
     void Print()
     {
         cout << basic.name << " " << basic.gender << " " << basic.eyeColor << endl
