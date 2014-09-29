@@ -13,9 +13,17 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    skincolorwindow.cpp \
+    genderwindow.cpp \
+    eyecolorwindow.cpp \
+    aboutwindow.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    skincolorwindow.h \
+    genderwindow.h \
+    eyecolorwindow.h \
+    aboutwindow.h
 
 FORMS    +=
 

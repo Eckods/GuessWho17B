@@ -15,12 +15,13 @@ public:
     ~MainWindow();
 
 private slots:
-    //void SkinColorButtonClicked();
-    //void GenderButtonClicked();
-    //void EyeColorButtonClicked();
+    void SkinColorButtonClicked();
+    void GenderButtonClicked();
+    void EyeColorButtonClicked();
     //void HairButtonClicked();
     //void FacialHairButtonClicked();
     //void AccessoriesButtonClicked();
+    void AboutButtonClicked();
 
 private:
     void createCharGroupBox();

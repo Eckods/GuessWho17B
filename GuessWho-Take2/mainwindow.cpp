@@ -1,5 +1,9 @@
 #include <QtGui>
 #include "mainwindow.h"
+#include "skincolorwindow.h"
+#include "genderwindow.h"
+#include "eyecolorwindow.h"
+#include "aboutwindow.h"
 
 MainWindow::MainWindow(){
     // Calls each group layout to be created
@@ -83,6 +87,7 @@ void MainWindow::createQuestionGroupBox(){
     SkinColor->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
                              "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
                              "QPushButton:pressed{background-image:url(:/program/images/Clicked.png);}");
+    connect(SkinColor, SIGNAL(clicked()), this, SLOT(SkinColorButtonClicked()));
 
     Gender = new QPushButton(tr("&Gender"));
     Gender->setFixedSize(172,48);
@@ -90,6 +95,7 @@ void MainWindow::createQuestionGroupBox(){
     Gender->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
                           "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
                           "QPushButton:pressed{background-image:url(:/program/images/Clicked.png);}");
+    connect(Gender, SIGNAL(clicked()), this, SLOT(GenderButtonClicked()));
 
     EyeColor = new QPushButton(tr("&Eye Color"));
     EyeColor->setFixedSize(172,48);
@@ -97,6 +103,7 @@ void MainWindow::createQuestionGroupBox(){
     EyeColor->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
                             "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
                             "QPushButton:pressed{background-image:url(:/program/images/Clicked.png);}");
+    connect(EyeColor, SIGNAL(clicked()), this, SLOT(EyeColorButtonClicked()));
 
     Hair = new QPushButton(tr("&Hair"));
     Hair->setFixedSize(172,48);
@@ -142,6 +149,7 @@ void MainWindow::createMiscGroupBox(){
     about->setStyleSheet("QPushButton{background-image:url(:/program/images/About.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
                              "QPushButton:hover{background-image:url(:/program/images/About-Hover.png);}"
                              "QPushButton:pressed{background-image:url(:/program/images/About-Clicked.png);}");
+    connect(about, SIGNAL(clicked()), this, SLOT(AboutButtonClicked()));
 
     quit = new QPushButton(tr("&Quit"));
     quit->setFixedSize(112,36);
@@ -170,4 +178,35 @@ void MainWindow::createYourCharGroupBox(){
     yourCharLayout->addWidget(yourCharacter, 0 , Qt::AlignHCenter);
 
     yourCharGroupBox->setLayout(yourCharLayout);
+}
+
+void MainWindow::SkinColorButtonClicked(){
+    // Creates a new window upon button click
+    SkinColorWindow skinColorWindow;
+    skinColorWindow.setStyleSheet("QDialog{background-color:#1d2020}");
+
+    // setModal set to true to prevent user from leaving window until choice is made or they exit
+    skinColorWindow.setModal(true);
+    skinColorWindow.exec();
+}
+
+void MainWindow::GenderButtonClicked(){
+    GenderWindow genderWindow;
+    genderWindow.setStyleSheet("QDialog{background-color:#1d2020}");
+    genderWindow.setModal(true);
+    genderWindow.exec();
+}
+
+void MainWindow::EyeColorButtonClicked(){
+    EyeColorWindow eyeColorWindow;
+    eyeColorWindow.setStyleSheet("QDialog{background-color:#1d2020}");
+    eyeColorWindow.setModal(true);
+    eyeColorWindow.exec();
+}
+
+void MainWindow::AboutButtonClicked(){
+    AboutWindow aboutWindow;
+    aboutWindow.setStyleSheet("QDialog{background-color:#1d2020}");
+    aboutWindow.setModal(true);
+    aboutWindow.exec();
 }
