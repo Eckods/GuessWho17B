@@ -16,6 +16,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib> 
+#include <cctype>
 #include <stdlib.h>
 #include "Person.h"
 using namespace std;
@@ -37,10 +38,10 @@ int main()
     // second comment CreatePerson then uncomment ReadInPersonData then run it to see the list of people. It will only contain numbers for now (just place holders)
     // third comment ReadInPersonData then uncomment AddDataToPerson then run it to add data to a person of ur choice
     
-    //CreatePeople();
+    CreatePeople();
     //DisplayPeople();
     //AddDataToPerson();
-    //Prompt();
+    Prompt();
     
     return 0;
 }
@@ -73,6 +74,7 @@ void Prompt()
                 break;
         }
     }
+    cout << endl;
 }
 
 void DisplayPeople()
@@ -119,8 +121,8 @@ void CreatePeople()
     // creating space in each memeber of the structs.
     person.basic = {"","","",""};
     person.hair = {"","",""};
-    person.facialHair = {"",""};
-    person.accessories = {"","","",""};
+    person.facialHair = {false, "",""};
+    person.accessories = {false,"", false, false};
     
     fstream personData(file, ios::out | ios::binary); // stream to write data to a file.
     if (personData.fail())
@@ -143,6 +145,8 @@ void CreatePeople()
 void AddDataToPerson()
 {
     int i;
+    bool correctInput = false;
+    
     // Open the file in binary mode for input and output
     fstream personData(file, ios::in | ios::out | ios::binary); // stream to read and write to file.
     if (personData.fail())
@@ -150,15 +154,14 @@ void AddDataToPerson()
         cout << "File failed....\n";
         exit(1);
     }
-    bool correctInput = false;
-    do {
+        do {
        // Get the person number of the desired record.
         cout << "Which person do you want to edit <1-10>? ";
-       cin >> i;
+        cin >> i;
         if (i > 0 && i <= NUM_PEOPLE)
             correctInput = true;
     }while(!correctInput);
-    
+    correctInput = false;
     cout << endl;
     
     if (i == 1)
@@ -191,6 +194,7 @@ void AddDataToPerson()
 
 
     // Get the new person data.
+    char answer = NULL;
     cout << "Enter the new data:\n";
     cout << "Person Name: ";
     cin.ignore();
@@ -208,18 +212,97 @@ void AddDataToPerson()
     cin  >> person.hair.hairColor;
     cout << "Hair Length: ";
     cin  >> person.hair.hairLength;
-    cout << "Facial Hair Type: ";
-    cin  >> person.facialHair.facialHairType;
-    cout << "Facial Hair Color: ";
-    cin  >> person.facialHair.facialHairColor;
-    cout << "Hat: ";
-    cin  >> person.accessories.hat;
-    cout << "HatColor: ";
-    cin  >> person.accessories.hatColor;
-    cout << "Glasses: ";
-    cin  >> person.accessories.glasses;
-    cout << "Earrings: ";
-    cin  >> person.accessories.earrings;
+    do
+    {
+        cout << "Facial Hair <Y or N>: ";
+        cin >> answer;
+        if ( tolower(answer)== 'y')
+        {
+            correctInput = true;
+            person.facialHair.facialHair = true;
+        }
+        else if (tolower(answer) == 'n')
+        {
+            correctInput = true;
+            person.facialHair.facialHair = false;
+        }
+        else
+            correctInput = false;
+    }while(!correctInput);
+    correctInput = false;
+    answer = NULL;
+    if(person.facialHair.facialHair == true)
+    {
+        cout << "Facial hair type: ";
+        cin  >> person.facialHair.facialHairType;
+        cout << "Facial Hair Color: ";
+        cin  >> person.facialHair.facialHairColor;
+    }
+    else
+    {
+        person.facialHair.facialHairType = "none";
+        person.facialHair.facialHairColor = "none";
+    }
+    do
+    {
+        cout << "Hat <Y or N>: ";
+        cin >> answer;
+        if ( tolower(answer)== 'y')
+        {
+            correctInput = true;
+            person.accessories.hat = true;
+        }
+        else if(tolower(answer) == 'n')
+        {
+            correctInput = true;
+            person.accessories.hat = false;
+        }
+        else
+            correctInput = false;
+    }while(!correctInput);
+    if (person.accessories.hat == true)
+    {
+        cout << "HatColor: ";
+        cin  >> person.accessories.hatColor;
+    }
+    else
+        person.accessories.hatColor = "none";
+    do
+    {
+        cout << "Glasses <Y or N>: ";
+        cin >> answer;
+        if ( tolower(answer)== 'y')
+        {
+            correctInput = true;
+            person.accessories.glasses = true;
+        }
+        else if (tolower(answer) == 'n')
+        {
+            correctInput = true;
+            person.accessories.glasses = false;
+        }
+        else
+            correctInput = false;
+    }while(!correctInput);
+    answer = NULL;
+    do
+    {
+        cout << "Earrings <Y or N>: ";
+        cin >> answer;
+        if ( tolower(answer)== 'y')
+        {
+            correctInput = true;
+            person.accessories.earrings = true;
+        }
+        else if(tolower(answer) == 'n')
+        {
+            correctInput = true;
+            person.accessories.earrings = false;
+        }
+        else
+            correctInput = false;
+    }while(!correctInput);
+    answer = NULL;
     cout << endl;
 
     // Move back to the beginning of this person's position.

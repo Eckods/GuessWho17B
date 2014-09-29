@@ -38,12 +38,15 @@ private:
     
     struct FacialHair
     {
+        bool facialHair;
         string facialHairType, facialHairColor;
     };
     
     struct Accessories
     {
-        string hat, hatColor, glasses, earrings;
+        bool hat;
+        string hatColor;
+        bool glasses, earrings;
     };
     
    public:
