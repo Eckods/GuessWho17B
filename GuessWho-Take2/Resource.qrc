@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/program">
+        <file>images/Clicked.png</file>
+        <file>images/Default.png</file>
+        <file>images/Hover.png</file>
+        <file>images/Quit.png</file>
+        <file>images/Quit-Clicked.png</file>
+        <file>images/Quit-Hover.png</file>
+        <file>images/About.png</file>
+        <file>images/About-Clicked.png</file>
+        <file>images/About-Hover.png</file>
+    </qresource>
+</RCC>
