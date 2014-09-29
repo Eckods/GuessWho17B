@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 AlphA. All rights reserved.
 //
 
+
 //**************************************** READ THIS *************************************************************************
 // As it stands these 2 files creates a specified number of people in a txt file filled with place holder data than you can then view or edit the person. Its just the beginning but its a good start for now
 
