@@ -9,14 +9,6 @@
 #ifndef GuessWho_Person_h
 #define GuessWho_Person_h
 
-//
-//  main.cpp
-//  GuessWho
-//
-//  Created by Kory Brown on 9/19/14.
-//  Copyright (c) 2014 AlphA. All rights reserved.
-//
-
 #include <iostream>
 using namespace std;
 
@@ -77,11 +69,6 @@ public:
         basic.name = n;
     }
     
-//    void setSkinColor(string n)
-//    {
-//        basic.skinColor = n;
-//    }
-    
     void setGender(string n)
     {
         
@@ -96,22 +83,11 @@ public:
     
     
     // Hair
-//    void setHairType(string n)
-//    {
-//        
-//        hair.hairType = n;
-//    }
-    
     void setHairColor(string n)
     {
         
         hair.hairColor = n;
     }
-    
-//    void setHairLength(string n)
-//    {
-//        hair.hairLength = n;
-//    }
   
     // Facial Hair
     void setFacialHair(bool n)
@@ -124,35 +100,11 @@ public:
         facialHair.facialHairType = n;
     }
     
-//    void setFacialHairColor(string n)
-//    {
-//        if (facialHair.facialHair)
-//            facialHair.facialHairColor = n;
-//        else
-//            facialHair.facialHairColor = "no facial hair";
-//    }
-    
     // Accessories
     void setHat(bool n)
     {
         accessories.hat = n;
     }
-//    void setHatColor(string n)
-//    {
-//        if (accessories.hat)
-//            accessories.hatColor = n;
-//        else
-//            accessories.hatColor = "no hat";
-//    }
-//    void setGlasses(bool n)
-//    {
-//        accessories.glasses = n;
-//    }
-//    void setEarrings(bool n)
-//    {
-//        accessories.earrings = n;
-//    }
-    
     
     // Get Basic
     string getName()
@@ -160,11 +112,6 @@ public:
         
         return basic.name;
     }
-    
-//    string getSkinColor()
-//    {
-//        return basic.skinColor;
-//    }
     
     string getGender()
     {
@@ -180,21 +127,11 @@ public:
     
     
     // Get Hair
-//    string getHairType()
-//    {
-//        
-//        return hair.hairType;
-//    }
     string getHairColor()
     {
         
         return hair.hairColor;
     }
-    
-//    string getHairLength()
-//    {
-//        return hair.hairLength;
-//    }
     
     // Get Facial Hair
     bool hasFacialHair()
@@ -206,40 +143,12 @@ public:
         return facialHair.facialHairType;
     }
     
-//    string getFacialHairColor()
-//    {
-//        return facialHair.facialHairColor;
-//    }
-    
     // Get Accessories
     bool hasHat()
     {
         return accessories.hat;
     }
     
-//    string getHatColor()
-//    {
-//        return accessories.hatColor;
-//    }
-    
-//    bool hasGlasses()
-//    {
-//        return accessories.glasses;
-//    }
-    
-//    bool hasEarrings()
-//    {
-//        return accessories.earrings;
-//    }
-    
-    //    void Print()
-    //    {
-    //        cout << basic.name << " " << basic.gender << " " << basic.eyeColor << endl
-    //             << hair.hairType << " " << hair.hairColor << " " << hair.hairLength << endl
-    //             << facialHair.facialHairType << " " << facialHair.facialHairColor << endl
-    //             << accessories.hat << " " << accessories.hatColor << accessories.glasses
-    //             << accessories.earrings << endl;
-    //    }
     Person GetPeopleData()
     {
         Person person;

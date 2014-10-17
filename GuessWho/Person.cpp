@@ -16,6 +16,15 @@
 
 using namespace std;
 
+string name [] = {"Elena", "Sephiroth", "Haytham", "Peach", "Xion", "Dante", "Ocelot", "Lara",
+                   "Luigi", "Rikku", "Adam", "Link", "Samus", "Geralt", "Waluigi", "Shiek",
+                   "Connor", "Aerith", "Chloe", "Little Mac", "Lee", "Snake", "Faith",
+                   "Dr. Mario"};
+string hairColor [] = {"blonde", "white", "brown", "black"};
+string eyeColor [] = {"brown", "green" , "blue"};
+string facialHairType[] = {"mustache", "beard"};
+string gender [] = {"male", "female"};
+
 
 void CreatePeople(); // creates a txt file that contains specifed list of people from the person class
 void DisplayPeople(); // read from text file the list of people and output to console
@@ -177,10 +186,10 @@ void AddDataToPerson()
     }while(!correctInput);
     cout << endl;
     
-    if (i == 1)
+    if (i > 0)
         i--;
-    else if (i == NUM_PEOPLE)
-        i--;
+//    else if (i == NUM_PEOPLE)
+//        i--;
     // Move to the person selected and read it.
     personData.seekg(i * sizeof(person), ios::beg);
     personData.read(reinterpret_cast<char *>(&person),
@@ -190,18 +199,13 @@ void AddDataToPerson()
     cout << "\nName: " << person.getName() << ":" << endl
     << "Gender: " << person.getGender() << endl
     << "Eye Color: " << person.getEyeColor() << endl
-    << " Hair Color: " << person.getHairColor() << endl
+    << "Hair Color: " << person.getHairColor() << endl
     << "Facial Hair: " << person.hasFacialHair() << endl
     << "Facial Hair Type: " << person.getFacialHairType() << endl
     << "Hat: " << person.hasHat() << endl << endl;
     
     
-    string name = "";
-    string gender = "";
-    string eyeColor = "";
-    string hairColor = "";
-    string facialHairType = "";
-    
+    int selection = 0;
     // Get the new person data.
     char answer = NULL;
     do
@@ -211,11 +215,90 @@ void AddDataToPerson()
         if ( tolower(answer)== 'y') // change exisiting
         {
             cout << "Person Name: ";
-            cin.ignore();
-            getline(cin, name);
-            person.setName(name);
+            cin >> selection;
+            
+            switch (selection)
+            {
+                case 0:
+                    person.setName(name[0]);
+                    break;
+                case 1:
+                     person.setName(name[1]);
+                    break;
+                case 2:
+                    person.setName(name[2]);
+                    break;
+                case 3:
+                    person.setName(name[3]);
+                    break;
+                case 4:
+                    person.setName(name[4]);
+                    break;
+                case 5:
+                    person.setName(name[5]);
+                    break;
+                case 6:
+                    person.setName(name[6]);
+                    break;
+                case 7:
+                    person.setName(name[7]);
+                    break;
+                case 8:
+                    person.setName(name[8]);
+                    break;
+                case 9:
+                    person.setName(name[9]);
+                    break;
+                case 10:
+                    person.setName(name[10]);
+                    break;
+                case 11:
+                    person.setName(name[11]);
+                    break;
+                case 12:
+                    person.setName(name[12]);
+                    break;
+                case 13:
+                    person.setName(name[13]);
+                    break;
+                case 14:
+                    person.setName(name[14]);
+                    break;
+                case 15:
+                    person.setName(name[15]);
+                    break;
+                case 16:
+                    person.setName(name[16]);
+                    break;
+                case 17:
+                    person.setName(name[17]);
+                    break;
+                case 18:
+                    person.setName(name[18]);
+                    break;
+                case 19:
+                    person.setName(name[19]);
+                    break;
+                case 20:
+                    person.setName(name[20]);
+                    break;
+                case 21:
+                    person.setName(name[21]);
+                    break;
+                case 22:
+                    person.setName(name[22]);
+                    break;
+                case 23:
+                    person.setName(name[23]);
+                    break;
+                    
+                default:
+                    break;
+            }
+            correctInput = true;
+           
         }
-        else if (tolower(answer) == 'n') // leave along
+        else if (tolower(answer) == 'n') // leave alone
         {
             correctInput = true;
         }
@@ -230,10 +313,22 @@ void AddDataToPerson()
         if ( tolower(answer)== 'y') // change exisiting
         {
             cout << "Gender: ";
-            cin  >> gender;
-            person.setGender(gender);
+            cin >> selection;
+            
+            switch (selection)
+            {
+                case 0:
+                    person.setGender(gender[0]);
+                    break;
+                case 1:
+                    person.setGender(gender[1]);
+                    break;
+                default:
+                    break;
+            }
+            correctInput = true;
         }
-        else if (tolower(answer) == 'n') // leave along
+        else if (tolower(answer) == 'n') // leave alone
         {
             correctInput = true;
         }
@@ -248,10 +343,28 @@ void AddDataToPerson()
         if ( tolower(answer)== 'y') // change exisiting
         {
             cout << "Hair Color: ";
-            cin  >> hairColor;
-            person.setEyeColor(hairColor);
+            cin >> selection;
+            
+            switch (selection)
+            {
+                case 0:
+                    person.setHairColor(hairColor[0]);
+                    break;
+                case 1:
+                    person.setHairColor(hairColor[1]);
+                    break;
+                case 2:
+                    person.setHairColor(hairColor[2]);
+                    break;
+                case 3:
+                    person.setHairColor(hairColor[3]);
+                    break;
+                default:
+                    break;
+            }
+            correctInput = true;
         }
-        else if (tolower(answer) == 'n') // leave along
+        else if (tolower(answer) == 'n') // leave alone
         {
             correctInput = true;
         }
@@ -266,10 +379,26 @@ void AddDataToPerson()
         if ( tolower(answer)== 'y') // change exisiting
         {
             cout << "Eye Color: ";
-            cin  >> eyeColor;
-            person.setEyeColor(eyeColor);
+            cin >> selection;
+            
+            switch (selection)
+            {
+                case 0:
+                    person.setEyeColor(eyeColor[0]);
+                    break;
+                case 1:
+                    person.setEyeColor(eyeColor[1]);
+                    break;
+                case 2:
+                    person.setEyeColor(eyeColor[2]);
+                    break;
+
+                default:
+                    break;
+            }
+            correctInput = true;
         }
-        else if (tolower(answer) == 'n') // leave along
+        else if (tolower(answer) == 'n') // leave alone
         {
             correctInput = true;
         }
@@ -293,9 +422,20 @@ void AddDataToPerson()
                     person.setFacialHair(true);
                     
                     cout << "Facial Hair Type: ";
-                    cin  >> facialHairType;
-                    person.setFacialHairType(facialHairType);
+                    cin >> selection;
                     
+                    switch (selection)
+                    {
+                        case 0:
+                            person.setFacialHairType(facialHairType[0]);
+                            break;
+                        case 1:
+                            person.setFacialHairType(facialHairType[1]);
+                            break;
+                        default:
+                            break;
+                    }
+                    correctInput = true;
                 }
                 else if (tolower(answer) == 'n')
                 {
