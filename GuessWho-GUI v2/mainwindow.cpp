@@ -53,7 +53,6 @@ void MainWindow::createMainMenuWidget(){
                         "QPushButton:hover{background-image:url(:/program/images/About-Hover.png);}"
                         "QPushButton:pressed{background-image:url(:/program/images/About-Clicked.png);}"
                          "QPushButton:disabled{background-image:url(:/program/images/Quit.png);};");
-    howToPlay->setDisabled(true);
     connect(howToPlay, SIGNAL(clicked()), this, SLOT(howToPlayButtonClicked()));
 
     QPushButton *about = new QPushButton(tr("About Guess Who"));
@@ -182,6 +181,7 @@ void MainWindow::createCharGroupBox(){
 //             characters[i][j] = new QPushButton(tr(""));
 //             characters[i][j]->setFixedSize(150,134);
 //             characters[i][j]->setStyleSheet("QPushButton{"+person->getImage()+";");
+//             characters[i][j]->setToolTip("+person->getDescription+");
 //             connect(characters[i][j], SIGNAL(clicked()), this, SLOT(characterButtonClicked()));
 //             layout->addWidget(characters[i][j], i, j);
         // increment through linked list
@@ -218,6 +218,7 @@ void MainWindow::createQuestionGroupBox(){
     hair->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
                         "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
                         "QPushButton:pressed{background-image:url(:/program/images/Clicked.png);}");
+    hair->setToolTip("Yo");
     connect(hair, SIGNAL(clicked()), this, SLOT(hairButtonClicked()));
 
     QPushButton *gender = new QPushButton(tr("&Gender"));
@@ -298,7 +299,12 @@ void MainWindow::createYourCharGroupBox(){
 
     QVBoxLayout *yourCharLayout = new QVBoxLayout;
     yourCharacter = new QPushButton(tr("Your Character"));
-    yourCharacter->setFixedSize(164,134);
+    yourCharacter->setFixedSize(150,134);
+    // Testing out the character image
+    /*yourCharacter->setStyleSheet("QPushButton{background-image:url(:/program/Sheet/Characters1.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
+                                 "QPushButton:hover{background-image:url(:/program/Sheet/Characters1-Hover.png);}"
+                                 "QPushButton:pressed{background-image:url(:/program/Sheet/Characters1-Disabled.png);}"
+                                 "QPushButton:disabled{background-image:url(:/program/Sheet/Characters1-Disabled.png);}");*/
 
     yourCharLayout->addWidget(yourCharacter, 0 , Qt::AlignHCenter);
 

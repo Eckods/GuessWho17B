@@ -13,7 +13,10 @@ public:
     ~HowToWindow();
 
 private:
-    QLabel *label;
+    QLabel *howToLabel;
+    QLabel *howToText;
+    QLabel *specificsLabel;
+    QLabel *specificsText;
     QDialogButtonBox *buttonBox;
 };
 #endif // HOWTOWINDOW_H
