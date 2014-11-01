@@ -32,6 +32,7 @@ MainWindow::MainWindow(){
     setWindowTitle(tr("Guess Who"));
     setStyleSheet("QMainWindow{background-color:#1d2020}");
     setFixedSize(1280,1024);
+    showFullScreen();
 }
 
 MainWindow::~MainWindow(){}
