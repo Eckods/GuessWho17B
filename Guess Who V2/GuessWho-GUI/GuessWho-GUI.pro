@@ -29,7 +29,9 @@ HEADERS  += mainwindow.h \
     hairwindow.h \
     facialhairwindow.h \
     headwearwindow.h \
-    howtowindow.h
+    howtowindow.h \
+    Person.h \
+    TextFile.h
 
 FORMS    +=
 

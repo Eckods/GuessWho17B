@@ -7,6 +7,14 @@
 #include "facialhairwindow.h"
 #include "headwearwindow.h"
 #include "howtowindow.h"
+#include <Person.h>
+#include <TextFile.h>
+
+
+Person people[row][col];
+TextFile text;
+
+void getPeopleData();
 
 MainWindow::MainWindow(){
     // Calls each group layout & widget to be created
@@ -31,7 +39,7 @@ MainWindow::MainWindow(){
     // Sets title to window, color, and size
     setWindowTitle(tr("Guess Who"));
     setStyleSheet("QMainWindow{background-color:#1d2020}");
-    setFixedSize(1280,1024);
+    setFixedSize(1280,1000);
     showFullScreen();
 }
 
@@ -174,22 +182,22 @@ void MainWindow::createCharGroupBox(){
     QGridLayout *layout = new QGridLayout;
 
     // Holds count for # of character buttons (24)
-    //int count = 0;
+//    int count = 0;
 
-    // character array with image loaded from linked list
-//    for (int i = 0; i < NumGridRows; i++){
-//         for (int j = 0; j < NumGridCols; j++){
-//             characters[i][j] = new QPushButton(tr(""));
-//             characters[i][j]->setFixedSize(150,134);
-//             characters[i][j]->setStyleSheet("QPushButton{"+person->getImage()+";");
-//             characters[i][j]->setToolTip("+person->getDescription+");
-//             connect(characters[i][j], SIGNAL(clicked()), this, SLOT(characterButtonClicked()));
-//             layout->addWidget(characters[i][j], i, j);
-        // increment through linked list
-//     if (person->next != null)
-//         person = person->next;
-//         }
-//     }
+    getPeopleData(); // populate people
+
+//     character array with image loaded from linked list
+    for (int i = 0; i < NumGridRows; i++){
+         for (int j = 0; j < NumGridCols; j++){
+             characters[i][j] = new QPushButton(tr(""));
+             characters[i][j]->setFixedSize(150,134);
+             characters[i][j]->setStyleSheet("QPushButton{"+people[i][j].getImage()+";");
+             characters[i][j]->setToolTip("+person->getDescription+");
+             connect(characters[i][j], SIGNAL(clicked()), this, SLOT(characterButtonClicked()));
+             layout->addWidget(characters[i][j], i, j);
+//         increment through linked list
+         }
+     }
 
     /* Creates new character buttons until the 4x6 grid is filled  ------- OBSOLETE
     for (int i = 0; i < NumGridRows; i++) {
@@ -423,3 +431,8 @@ void MainWindow::backToMainMenu(){
 //{
 //    person->getName();
 //}
+
+void getPeopleData()
+{
+    text.getDataFromFile(people);
+}
