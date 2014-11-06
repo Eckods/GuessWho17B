@@ -87,5 +87,6 @@
         <file>Sheet/Characters23-Hover.png</file>
         <file>Sheet/Characters24-Disabled.png</file>
         <file>Sheet/Characters24-Hover.png</file>
+        <file>PersonData.txt</file>
     </qresource>
 </RCC>
