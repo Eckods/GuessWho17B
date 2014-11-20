@@ -1,2 +1,5 @@
+HEADERS += \
+    Person.h
+
 SOURCES += \
-    main.cpp
+    Person.cpp
