@@ -12,25 +12,26 @@
 #include <iostream>
 #include <fstream>
 #include <QString>
+#include <QTextStream>
 using namespace std;
 
 
 
 struct Basic
 {
-    string name, gender, eyeColor;
+    QString name, gender, eyeColor;
 };
 
 
 struct Hair
 {
-    string hairColor;
+    QString hairColor;
 };
 
 struct FacialHair
 {
     bool facialHair;
-    string facialHairType;
+    QString facialHairType;
 };
 
 struct Accessories
@@ -42,7 +43,7 @@ struct Accessories
 class Person
 {
 private:
-    string image;
+    QString image;
     bool data;
 
     // initialize structs
@@ -71,51 +72,9 @@ public:
         hair = right.hair;
         facialHair = right.facialHair;
         accessories = right.accessories;
-        image = right.image.c_str();
+        image = right.image;
 
     }
-
-    friend fstream &operator << (fstream & out,  Person &person)
-    {
-        out << person.getData() << endl;
-        out << person.getName() << endl;
-        out << person.getGender() << endl;
-        out << person.getEyeColor() << endl;
-        out << person.getHairColor() << endl;
-        out << person.hasFacialHair() << endl;
-        out << person.getFacialHairType() << endl;
-        out << person.hasHat() << endl;
-        out << person.getImage().toStdString() << endl;
-        out << endl;
-
-        return out;
-    }
-
-    friend fstream &operator >> (fstream & in,  Person &person)
-    {
-        string garbage;
-        getline(in, garbage);  // moves the cursor to nextLine
-        getline(in, person.basic.name);
-        in >> person.basic.gender;
-        in >> person.basic.eyeColor;
-        in >> person.hair.hairColor;
-        in >> person.facialHair.facialHair;
-        in >> person.facialHair.facialHairType;
-        in >> person.accessories.hat;
-        getline(in, garbage); // moves the cursor to nextLine
-        getline(in, person.image);
-        person.data = true;
-
-        return in;
-    }
-    //   void dataCheck()
-    //   {
-    //       if (basic.name != NULL && basic.gender != NULL && basic.eyeColor != NULL && hair.hairColor != NULL
-    //               && facialHair.facialHair != NULL && facialHair.facialHairType != NULL && accessories.hat != NULL && image != NULL)
-    //           data = true;
-    //       else
-    //           data = false;
-    //   }
 
     void setData(bool a)
     {
@@ -127,25 +86,25 @@ public:
     }
 
     // Image
-    void setImage(string n)
+    void setImage(QString n)
     {
         image = n;
     }
 
     // Basic
-    void setName(string n)
+    void setName(QString n)
     {
 
         basic.name = n;
     }
 
-    void setGender(string n)
+    void setGender(QString n)
     {
 
         basic.gender = n;
     }
 
-    void setEyeColor(string s)
+    void setEyeColor(QString s)
     {
 
         basic.eyeColor = s;
@@ -153,7 +112,7 @@ public:
 
 
     // Hair
-    void setHairColor(string n)
+    void setHairColor(QString n)
     {
 
         hair.hairColor = n;
@@ -165,7 +124,7 @@ public:
         facialHair.facialHair = n;
     }
 
-    void setFacialHairType(string n)
+    void setFacialHairType(QString n)
     {
         facialHair.facialHairType = n;
     }
@@ -183,24 +142,24 @@ public:
     //    }
     QString getImage()
     {
-        QString i = image.c_str();
-        return i;
+//        QString i = image.c_str();
+        return image;
     }
 
     // Get Basic
-    string getName()
+    QString getName()
     {
 
         return basic.name;
     }
 
-    string getGender()
+    QString getGender()
     {
 
         return basic.gender;
     }
 
-    string getEyeColor()
+    QString getEyeColor()
     {
 
         return basic.eyeColor;
@@ -208,7 +167,7 @@ public:
 
 
     // Get Hair
-    string getHairColor()
+    QString getHairColor()
     {
 
         return hair.hairColor;
@@ -219,7 +178,7 @@ public:
     {
         return facialHair.facialHair;
     }
-    string getFacialHairType()
+    QString getFacialHairType()
     {
         return facialHair.facialHairType;
     }

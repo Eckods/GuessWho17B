@@ -8,11 +8,14 @@
 #include <cctype>
 #include <stdlib.h>
 #include "Person.h"
+#include <QFile>
+#include <QString>
+#include <QMessageBox>
 
 using namespace std;
 
 
-const string file =":/program/PersonData.txt";
+const QString file =":/program/PersonData.txt";
 const int row = 4;
 const int col = 6;
 
@@ -22,31 +25,74 @@ class TextFile
 public:
     void getDataFromFile(Person people[][col])
     {
-        fstream personData(file.c_str(), ios::in | ios::binary);
-
-        if (personData.fail())
+        QFile path(file);
+        if (!path.open(QIODevice::ReadOnly | QIODevice::Text))
         {
-            cout << "File not detected...\n";
-            exit(1);
-
+            QMessageBox::information(0, "error", path.errorString());
+            exit(55);
         }
+
+        QTextStream personData(&path);
+
+        //        fstream personData(file.c_str(), ios::in | ios::binary);
+
+        //        if (personData.fail())
+        //        {
+        //            cout << "File not detected...\n";
+        //            exit(1);
+
+        //        }
         int personCount = 0;
         Person temp;
         for(int i=0; i<row; i++)
         {
             for(int j=0; j<col; j++)
             {
-                if (!personData.eof())
+                if (!personData.atEnd())
                 {
                     bool hasData = false;
-                    personData >> hasData;
+                    QString data;
+                    int boolean;
+                    personData >> boolean;
+                    if (boolean == 1)
+                            hasData = true;
+                    else
+                           hasData = false;
                     personCount++;
                     if (hasData == true)
                     {
 
                         cout << "Loading Person " << personCount << endl;
                         temp.setData(hasData);
-                        personData >> temp;
+
+                        // read in data
+                        QString garbage;
+                        garbage = personData.readLine();  // moves the cursor to nextLine
+                        data = personData.readLine();
+                        temp.setName(data);
+                        personData >> data;
+                        temp.setGender(data);
+                        personData >> data;
+                        temp.setEyeColor(data);
+                        personData >> data;
+                        temp.setHairColor(data);
+                        personData >> boolean;
+                        if (boolean == 1)
+                                temp.setFacialHair(true);
+                        else
+                               temp.setFacialHair(false);
+                        personData >> data;
+                        temp.setFacialHairType(data);
+                        personData >> boolean;
+                        if (boolean == 1)
+                                temp.setHat(true);
+                        else
+                               temp.setHat(false);
+                        garbage = personData.readLine();  // moves the cursor to nextLine
+                        data = personData.readLine();  // moves the cursor to nextLine
+                        temp.setImage(data);
+                        temp.setData(true);
+
                         people[i][j] = temp;
                     }
                     else
@@ -56,7 +102,7 @@ public:
             }
         }
         cout << endl;
-        personData.close();
+        path.close();
     }
 };
 #endif // TEXTFILE_H
