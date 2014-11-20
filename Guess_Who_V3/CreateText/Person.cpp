@@ -151,7 +151,7 @@ void Prompt(); // Allows to display or add data to a person continuously
 void openTextFile();
 void saveTextFile();
 
-const string file = "/Users/Teramino/Desktop/PersonData.txt";
+const string file = "c:/PersonData.txt";
 const int NUM_PEOPLE = 24;
 const int row = 4;
 const int col = 6;

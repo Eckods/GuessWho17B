@@ -192,22 +192,13 @@ void MainWindow::createCharGroupBox(){
              characters[i][j] = new QPushButton(tr(""));
              characters[i][j]->setFixedSize(150,134);
              characters[i][j]->setStyleSheet("QPushButton{"+people[i][j].getImage()+";");
-             characters[i][j]->setToolTip("+person->getDescription+");
+             characters[i][j]->setToolTip("Name: "+people[i][j].getName()+"\n" + "Gender: "+people[i][j].getGender()+"\n" "Eye Color: "+people[i][j].getEyeColor()+"\n"
+                                            + "Hair Color: "+people[i][j].getHairColor()+"\n" + "Facial Hair: "+people[i][j].getFacialHairType()+"");
              connect(characters[i][j], SIGNAL(clicked()), this, SLOT(characterButtonClicked()));
              layout->addWidget(characters[i][j], i, j);
 //         increment through linked list
          }
      }
-
-    /* Creates new character buttons until the 4x6 grid is filled  ------- OBSOLETE
-    for (int i = 0; i < NumGridRows; i++) {
-        for (int j = 0; j < NumGridCols; j++){
-            count++;
-            characters[i][j] = new QPushButton(tr("Character %0").arg(count));
-            characters[i][j]->setFixedSize(150,134);
-            layout->addWidget(characters[i][j], i, j);
-        }
-    }*/
     charGroupBox->setLayout(layout);
     charGroupBox->setFixedHeight(700);
 }
@@ -439,39 +430,41 @@ void MainWindow::backToMainMenu(){
 //    person->getName();
 //}
 
-void getPeopleData()
-{
+void getPeopleData(){
     text.getDataFromFile(people);
 }
 
-void MainWindow::createText()
-{
+void MainWindow::createText(){
     // Creates a new process to be called
-        QProcess *process = new QProcess;
+    QProcess *process = new QProcess;
 
-        // Holds the path to the CreateText.exe
-        QString path = "open \"/Users/Teramino/Desktop/Qt/build-CreateText-Desktop_Qt_4_8_5-Debug/CreateText.app/Contents/MacOS/CreateText\"";
+    #ifdef Q_WS_WIN
+    // Runs the CreateText.exe
+    process->startDetached("CreateText");
 
-        // Displays the path to exe file
-//        qDebug() << path;
+    // If the program runs, display a message saying it ran fine
+    if (process->waitForStarted() == true){
+        qDebug() << "\nRunning CreateText";
+    }
+    #endif
 
-        // Runs the CreateText.exe
-        process->start(path);
+    #ifdef Q_WS_MACX
+    // Holds the path to the CreateText.exe
+    QString path = "open \"/Users/Teramino/Desktop/Qt/build-CreateText-Desktop_Qt_4_8_5-Debug/CreateText.app/Contents/MacOS/CreateText\"";
 
-        // If the program fails to start, display an error message and exit the program
-        if (process->waitForStarted() == false){
-            qDebug() << "\nError starting CreateText";
-            qDebug() << process->errorString();
-            exit (-1);
-        }
+    // Runs the CreateText.exe
+    process->start(path);
 
-        // If the program runs, display a message saying it ran fine
-        if (process->waitForStarted() == true){
-            qDebug() << "\nRunning CreateText";
-        }
-        qDebug() << process->exitCode();
-        process->waitForFinished(-1);
-        // Close the .exe file after it has created the Guide text file needed
-        process->close();
-        qDebug() << "Closing CreateText";
+    // If the program fails to start, display an error message and exit the program
+    if (process->waitForStarted() == false){
+        qDebug() << "\nError starting CreateText";
+        qDebug() << process->errorString();
+        exit (-1);
+    }
+
+    // If the program runs, display a message saying it ran fine
+    if (process->waitForStarted() == true){
+        qDebug() << "\nRunning CreateText";
+    }
+    #endif
 }
