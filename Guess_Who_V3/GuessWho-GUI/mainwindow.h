@@ -27,7 +27,8 @@ private slots:
     void howToPlayButtonClicked();
     void backToMainMenu();
     void createText();
-    //void characterButtonClicked();
+    void characterButtonClicked();
+    void guessWhoClicked();
 
 private:
     void createCharGroupBox();
@@ -48,6 +49,7 @@ private:
     QGroupBox *yourCharGroupBox;
     QPushButton *characters[NumGridRows][NumGridCols];
     QPushButton *yourCharacter;
+    QPushButton *facialHair;
     QAction *exitAct;
     QAction *aboutAct;
     QAction *returnAct;

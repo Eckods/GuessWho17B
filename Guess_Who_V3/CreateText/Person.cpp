@@ -27,121 +27,122 @@ string gender [] = {"male", "female"};
 string image [] = {"background-image:url(:/program/Sheet/Characters1.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters1-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters1-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters1-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters1-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters2.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters2-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters2-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters2-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters2-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters3.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters3-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters3-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters3-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters3-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters4.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters4-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters4-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters4-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters4-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters5.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters5-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters5-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters5-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters5-Disabled.png);}",
+
                    "background-image:url(:/program/Sheet/Characters6.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters6-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters6-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters6-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters6-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters7.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters7-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters7-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters7-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters7-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters8.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters8-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters8-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters8-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters8-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters9.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters9-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters9-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters9-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters9-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters10.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters10-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters10-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters10-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters10-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters11.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters11-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters11-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters11-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters11-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters12.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters12-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters12-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters12-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters12-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters13.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters13-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters13-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters13-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters13-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters14.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters14-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters14-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters14-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters14-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters15.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters15-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters15-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters15-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters15-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters16.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters16-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters16-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters16-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters16-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters17.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters17-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters17-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters17-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters17-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters18.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters18-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters18-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters18-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters18-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters19.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters19-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters19-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters19-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters19-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters20.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters20-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters20-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters20-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters20-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters21.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters21-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters21-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters21-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters21-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters22.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters22-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters22-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters22-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters22-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters23.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters23-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters23-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters23-Disabled.png);}",
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters23-Disabled.png);}",
 
                    "background-image:url(:/program/Sheet/Characters24.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                    "QPushButton:hover{background-image:url(:/program/Sheet/Characters24-Hover.png);}"
                    "QPushButton:pressed{background-image:url(:/program/Sheet/Characters24-Disabled.png);}"
-                   "QPushButton:disabled{background-image:url(:/program/Sheet/Characters24-Disabled.png);}"};
+                   "QPushButton:checked{background-image:url(:/program/Sheet/Characters24-Disabled.png);}"};
 
 
 void CreatePeople(); // creates a txt file that contains specifed list of people from the person class

@@ -41,13 +41,20 @@ void GenderWindow::isAccepted(){
     // Replace with variables once class is created
     if (question1->isChecked()){
         cout << "Male" << endl;
+        unlockFacialHair = true;
         close();
     }
     else if (question2->isChecked()){
         cout << "Female" << endl;
+        unlockFacialHair = true;
         close();
     }
     else
+        if(unlockFacialHair == true){
+            close();
+        }
+        else
+        unlockFacialHair = false;
         close();
 }
 

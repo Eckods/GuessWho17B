@@ -13,6 +13,7 @@ class GenderWindow : public QDialog
 public:
     explicit GenderWindow(QWidget *parent = 0);
     ~GenderWindow();
+    bool unlockFacialHair;
 
 private slots:
     void isAccepted();

@@ -7,8 +7,8 @@
 #include "facialhairwindow.h"
 #include "headwearwindow.h"
 #include "howtowindow.h"
-#include <Person.h>
-#include <TextFile.h>
+#include "Person.h"
+#include "TextFile.h"
 
 
 Person people[row][col];
@@ -139,16 +139,27 @@ void MainWindow::startButtonClicked(){
 }
 
 void MainWindow::createGameWidget(){
-    // Creates a push button for the Guess who button *** NEED TO INSERT GUESS WHO TITLE IMAGE & SET STYLESHEET ***
+    // Creates a push button for the Guess who button
     QPushButton *guessWho = new QPushButton(tr(""));
     guessWho->setFixedSize(280,200);
     guessWho->setStyleSheet("QPushButton{background-image:url(:/program/images/Guess.png); border-style: none;}"
                              "QPushButton:hover{background-image:url(:/program/images/Guess-Hover.png);}"
                              "QPushButton:pressed{background-image:url(:/program/images/Guess-Clicked.png);}");
+    connect(guessWho, SIGNAL(clicked()), this, SLOT(guessWhoClicked()));
 
     // Creates a textBrowser that loads in the opponent's replies
     replyBox = new QTextBrowser;
     replyBox->setFixedSize(300,400);
+
+    QString oppResponse;
+
+    //if (some bool passed from GameManager == true){
+        oppResponse = "<font color='red'>Opponent says</font>: Yes";
+        replyBox->append(oppResponse);
+    //}
+   // else
+       oppResponse = "<font color='blue'>Opponent says</font>: No";
+       replyBox->append(oppResponse);
 
     // Sets up a grid layout for the main window
     QGridLayout *mainLayout = new QGridLayout;
@@ -181,9 +192,6 @@ void MainWindow::createCharGroupBox(){
 
     QGridLayout *layout = new QGridLayout;
 
-    // Holds count for # of character buttons (24)
-//    int count = 0;
-
     getPeopleData(); // populate people
 
 //     character array with image loaded from linked list
@@ -194,6 +202,7 @@ void MainWindow::createCharGroupBox(){
              characters[i][j]->setStyleSheet("QPushButton{"+people[i][j].getImage()+";");
              characters[i][j]->setToolTip("Name: "+people[i][j].getName()+"\n" + "Gender: "+people[i][j].getGender()+"\n" "Eye Color: "+people[i][j].getEyeColor()+"\n"
                                             + "Hair Color: "+people[i][j].getHairColor()+"\n" + "Facial Hair: "+people[i][j].getFacialHairType()+"");
+             characters[i][j]->setCheckable(true);
              connect(characters[i][j], SIGNAL(clicked()), this, SLOT(characterButtonClicked()));
              layout->addWidget(characters[i][j], i, j);
 //         increment through linked list
@@ -237,12 +246,14 @@ void MainWindow::createQuestionGroupBox(){
                             "QPushButton:pressed{background-image:url(:/program/images/Clicked.png);}");
     connect(eyeColor, SIGNAL(clicked()), this, SLOT(eyeColorButtonClicked()));
 
-    QPushButton *facialHair = new QPushButton(tr("&Facial Hair"));
+    facialHair = new QPushButton(tr("&Facial Hair"));
     facialHair->setFixedSize(172,48);
     facialHair->setFont(QFont("MS Shell Dlg 2", 11, QFont::Bold));
+    facialHair->setEnabled(false);
     facialHair->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
                               "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
-                              "QPushButton:pressed{background-image:url(:/program/images/Clicked.png);}");
+                              "QPushButton:pressed{background-image:url(:/program/images/Clicked.png);}"
+                              "QPushButton:disabled{background-image:url(:/program/images/Disabled.png);}");
     connect(facialHair, SIGNAL(clicked()), this, SLOT(facialHairButtonClicked()));
 
     QPushButton *headwear = new QPushButton(tr("&Headwear"));
@@ -298,73 +309,102 @@ void MainWindow::createYourCharGroupBox(){
     yourCharGroupBox->setFont(QFont("MS Shell Dlg 2", 9, QFont::Bold));
 
     QVBoxLayout *yourCharLayout = new QVBoxLayout;
-    yourCharacter = new QPushButton(tr("Your Character"));
+    yourCharacter = new QPushButton(tr(""));
     yourCharacter->setFixedSize(150,134);
+    yourCharacter->setCheckable(true);
     // Testing out the character image
-    /*yourCharacter->setStyleSheet("QPushButton{background-image:url(:/program/Sheet/Characters1.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
+    yourCharacter->setStyleSheet("QPushButton{background-image:url(:/program/Sheet/Characters1.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
                                  "QPushButton:hover{background-image:url(:/program/Sheet/Characters1-Hover.png);}"
                                  "QPushButton:pressed{background-image:url(:/program/Sheet/Characters1-Disabled.png);}"
-                                 "QPushButton:disabled{background-image:url(:/program/Sheet/Characters1-Disabled.png);}");*/
+                                 "QPushButton:checked{background-image:url(:/program/Sheet/Characters1-Disabled.png);}");
+    connect(yourCharacter, SIGNAL(clicked()), this, SLOT(characterButtonClicked()));
 
+    //yourCharacter->setChecked(true);
     yourCharLayout->addWidget(yourCharacter, 0 , Qt::AlignHCenter);
 
     yourCharGroupBox->setLayout(yourCharLayout);
 }
 
+void MainWindow::guessWhoClicked(){
+    QMessageBox *msgBox = new QMessageBox(QMessageBox::Information, "QT",
+                                          "<font color='white'>Select which character to guess</font>", QMessageBox::Ok | QMessageBox::Cancel);
+    msgBox->setWindowFlags(Qt::FramelessWindowHint);
+    msgBox->setStyleSheet("QMessageBox{background-color:#1d2020}");
+    msgBox->exec();
+}
+
+void MainWindow::characterButtonClicked(){
+    // Black out the character button if clicked
+    QPushButton* clickedButton = (QPushButton*)(sender());
+    //if (clickedButton->isEnabled())
+   //     clickedButton->setEnabled(false);
+    if(clickedButton->isChecked())
+        clickedButton->setChecked(true);
+    else
+        clickedButton->setChecked(false);
+        //clickedButton->setEnabled(true);
+}
+
+void getPeopleData(){
+    text.getDataFromFile(people);
+}
+
 void MainWindow::hairButtonClicked(){
     // Creates a new window upon button click
-    HairWindow hairWindow;
-    hairWindow.setStyleSheet("QDialog{background-color:#1d2020}");
+    HairWindow *hairWindow = new HairWindow(this);
+    hairWindow->setStyleSheet("QDialog{background-color:#1d2020}");
 
     // setModal set to true to prevent user from leaving window until choice is made or they exit
-    hairWindow.setModal(true);
-    hairWindow.exec();
+    hairWindow->setModal(true);
+    hairWindow->exec();
 }
 
 void MainWindow::genderButtonClicked(){
-    GenderWindow genderWindow;
-    genderWindow.setStyleSheet("QDialog{background-color:#1d2020}");
-    genderWindow.setModal(true);
-    genderWindow.exec();
+    GenderWindow *genderWindow = new GenderWindow(this);
+    genderWindow->setStyleSheet("QDialog{background-color:#1d2020}");
+    genderWindow->setModal(true);
+    genderWindow->exec();
+
+    // Unlocks the facial hair button to be useable
+    facialHair->setEnabled(genderWindow->unlockFacialHair);
 }
 
 void MainWindow::eyeColorButtonClicked(){
-    EyeColorWindow eyeColorWindow;
-    eyeColorWindow.setStyleSheet("QDialog{background-color:#1d2020}");
-    eyeColorWindow.setModal(true);
-    eyeColorWindow.exec();
+    EyeColorWindow *eyeColorWindow = new EyeColorWindow(this);
+    eyeColorWindow->setStyleSheet("QDialog{background-color:#1d2020}");
+    eyeColorWindow->setModal(true);
+    eyeColorWindow->exec();
 }
 
 void MainWindow::aboutButtonClicked(){
-    AboutWindow aboutWindow;
-    aboutWindow.setStyleSheet("QDialog{background-color:#1d2020}");
-    aboutWindow.setModal(true);
-    aboutWindow.exec();
+    AboutWindow *aboutWindow = new AboutWindow(this);
+    aboutWindow->setStyleSheet("QDialog{background-color:#1d2020}");
+    aboutWindow->setModal(true);
+    aboutWindow->exec();
 }
 
 void MainWindow::facialHairButtonClicked(){
-    FacialHairWindow facialHairWindow;
-    facialHairWindow.setStyleSheet("QDialog{background-color:#1d2020}");
-    facialHairWindow.setModal(true);
-    facialHairWindow.exec();
+    FacialHairWindow *facialHairWindow = new FacialHairWindow(this);
+    facialHairWindow->setStyleSheet("QDialog{background-color:#1d2020}");
+    facialHairWindow->setModal(true);
+    facialHairWindow->exec();
 }
 
 void MainWindow::headwearButtonClicked(){
-    HeadwearWindow HeadwearWindow;
-    HeadwearWindow.setStyleSheet("QDialog{background-color:#1d2020}");
-    HeadwearWindow.setModal(true);
-    HeadwearWindow.exec();
+    HeadwearWindow *headwearWindow = new HeadwearWindow(this);
+    headwearWindow->setStyleSheet("QDialog{background-color:#1d2020}");
+    headwearWindow->setModal(true);
+    headwearWindow->exec();
 }
 
 void MainWindow::howToPlayButtonClicked(){
-    HowToWindow howToPlayWindow;
-    howToPlayWindow.setStyleSheet("QDialog{background-color:#1d2020}");
-    howToPlayWindow.setModal(true);
-    howToPlayWindow.exec();
+    HowToWindow *howToPlayWindow = new HowToWindow(this);
+    howToPlayWindow->setStyleSheet("QDialog{background-color:#1d2020}");
+    howToPlayWindow->setModal(true);
+    howToPlayWindow->exec();
 }
 
 void MainWindow::createMenu(){
-    //menuBar()->setStyleSheet("QMenuBar{color:white}");
     gameMenu = menuBar()->addMenu(tr("&Game"));
     gameMenu->addAction(returnAct);
     gameMenu->addSeparator();
@@ -373,7 +413,7 @@ void MainWindow::createMenu(){
     aboutMenu = menuBar()->addMenu(tr("A&bout"));
     aboutMenu->addAction(aboutAct);
 
-    miscMenu= menuBar()->addMenu(tr("&Misc Menu"));
+    miscMenu= menuBar()->addMenu(tr("&Misc"));
     miscMenu->addAction(createAct);
 }
 
@@ -395,8 +435,9 @@ void MainWindow::createActions(){
     aboutAct->setStatusTip(tr("Shows info about game"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(aboutButtonClicked()));
 
-    createAct = new QAction(tr("Create new character text file"), this);
-    createAct->setStatusTip(tr("Create text file for characters"));
+    // Allows the user to create a new text file for character selection
+    createAct = new QAction(tr("Edit characters text"), this);
+    createAct->setStatusTip(tr("Create/Edit text file for character selection"));
     connect(createAct, SIGNAL(triggered()), this, SLOT(createText()));
 }
 
@@ -425,21 +466,12 @@ void MainWindow::backToMainMenu(){
         stack->setCurrentIndex(prevPage);
 }
 
-//void MainWindow::characterButtonClicked()
-//{
-//    person->getName();
-//}
-
-void getPeopleData(){
-    text.getDataFromFile(people);
-}
-
 void MainWindow::createText(){
     // Creates a new process to be called
     QProcess *process = new QProcess;
 
     #ifdef Q_WS_WIN
-    // Runs the CreateText.exe
+    // Runs the CreateText.exe from debug folder
     process->startDetached("CreateText");
 
     // If the program runs, display a message saying it ran fine
