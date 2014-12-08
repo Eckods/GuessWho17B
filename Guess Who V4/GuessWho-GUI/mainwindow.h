@@ -33,6 +33,7 @@ private slots:
     void isRejected();
     void isGuessed();
     void characterGuessClicked();
+    void highScoresButtonClicked();
 
 private:
     void createCharGroupBox();

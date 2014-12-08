@@ -5,6 +5,9 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += network
+QT       += sql
+LIBS+=-LC:\MySQL\MySQL51\lib\opt -lmysql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,7 +23,8 @@ SOURCES += main.cpp\
     hairwindow.cpp \
     facialhairwindow.cpp \
     headwearwindow.cpp \
-    howtowindow.cpp
+    howtowindow.cpp \
+    highscorewindow.cpp
 
 HEADERS  += mainwindow.h \
     genderwindow.h \
@@ -31,7 +35,8 @@ HEADERS  += mainwindow.h \
     headwearwindow.h \
     howtowindow.h \
     Person.h \
-    TextFile.h
+    TextFile.h \
+    highscorewindow.h
 
 FORMS    +=
 

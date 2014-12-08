@@ -9,6 +9,7 @@
 #include "howtowindow.h"
 #include "Person.h"
 #include "TextFile.h"
+#include "highscorewindow.h"
 
 Person people[row][col];
 TextFile text;
@@ -79,10 +80,20 @@ void MainWindow::createMainMenuWidget(){
                         "QPushButton:pressed{background-image:url(:/program/images/Quit-Clicked.png);}");
     connect(quit, SIGNAL(clicked()), qApp, SLOT(quit()));
 
+    QPushButton *highScores = new QPushButton(tr("High Scores"));
+    highScores->setFixedSize(172,48);
+    highScores->setFont(QFont("MS Shell Dlg 2", 11, QFont::Bold));
+    highScores->setStyleSheet("QPushButton{background-image:url(:/program/images/About.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
+                            "QPushButton:hover{background-image:url(:/program/images/About-Hover.png);}"
+                            "QPushButton:pressed{background-image:url(:/program/images/About-Clicked.png);}");
+    connect(highScores, SIGNAL(clicked()), this, SLOT(highScoresButtonClicked()));
+
     // Creates the layout for the buttons
     QVBoxLayout *buttonLayout = new QVBoxLayout;
     buttonLayout->addSpacing(20);
     buttonLayout->addWidget(start, 0, Qt::AlignHCenter);
+    buttonLayout->addSpacing(15);
+    buttonLayout->addWidget(highScores, 0, Qt::AlignHCenter);
     buttonLayout->addSpacing(15);
     buttonLayout->addWidget(howToPlay, 0, Qt::AlignHCenter);
     buttonLayout->addSpacing(15);
@@ -459,6 +470,13 @@ void MainWindow::aboutButtonClicked(){
     aboutWindow->setStyleSheet("QDialog{background-color:#1d2020}");
     aboutWindow->setModal(true);
     aboutWindow->exec();
+}
+
+void MainWindow::highScoresButtonClicked(){
+    HighScoreWindow *highWindow = new HighScoreWindow(this);
+    highWindow->setStyleSheet("QDialog{background-color:#1d2020}");
+    highWindow->setModal(true);
+    highWindow->exec();
 }
 
 void MainWindow::facialHairButtonClicked(){
