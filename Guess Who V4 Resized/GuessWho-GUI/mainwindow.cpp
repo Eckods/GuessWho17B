@@ -15,7 +15,6 @@
 
 Person people[row][col];
 TextFile text;
-QGridLayout *grid;
 int windowHeight;
 int windowWidth;
 
@@ -23,9 +22,6 @@ void getPeopleData();
 
 MainWindow::MainWindow()
 {
-    grid = new QGridLayout(this);
-//    grid->setSpacing(2);
-
     // Calls each group layout & widget to be created
     createCharGroupBox();
     createQuestionGroupBox();
