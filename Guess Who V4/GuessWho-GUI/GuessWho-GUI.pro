@@ -7,7 +7,7 @@
 QT       += core gui
 QT       += network
 QT       += sql
-LIBS+=-LC:/MySQL/MySQL51/lib/opt -lmysql
+#LIBS+=-LC:/MySQL/MySQL51/lib/opt -lmysql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

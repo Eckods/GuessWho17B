@@ -13,6 +13,8 @@
 
 Person people[row][col];
 TextFile text;
+int windowHeight;
+int windowWidth;
 
 void getPeopleData();
 
@@ -47,8 +49,10 @@ MainWindow::MainWindow()
     // Sets title to window, color, and size
     setWindowTitle(tr("Guess Who"));
     setStyleSheet("QMainWindow{background-color:#1d2020}");
-    setFixedSize(1280,1024);
-    showFullScreen();
+    QRect screenSize = QDesktopWidget().availableGeometry(this);
+    windowWidth = (int) screenSize.width();
+    windowHeight = (int) screenSize.height();
+    setFixedSize(windowWidth, windowHeight);
 
 }
 
