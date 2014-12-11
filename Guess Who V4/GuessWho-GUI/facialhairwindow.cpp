@@ -1,4 +1,5 @@
 #include "facialhairwindow.h"
+#include "gamemanager.h"
 #include <QtGui>
 #include <iostream>
 using namespace std;
@@ -39,12 +40,15 @@ FacialHairWindow::~FacialHairWindow(){}
 void FacialHairWindow::isAccepted(){
     // Example for communication with the Game Manager class
     // Replace with variables once class is created
+    QString facialHairChoice; // variable that holds guess and is sent to gameManager
     if (question1->isChecked()){
-        cout << "Mustache" << endl;
+        facialHairChoice="Mustache";
+        GameManager().guessFacialHair(facialHairChoice);
         close();
     }
     else if (question2->isChecked()){
-        cout << "Beard" << endl;
+        facialHairChoice="Beard";
+        GameManager().guessFacialHair(facialHairChoice);
         close();
     }
     else

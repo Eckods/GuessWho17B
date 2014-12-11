@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "gamemanager.h"
 
 class QPushButton;
 class QGroupBox;
@@ -10,7 +11,7 @@ class QStackedWidget;
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+  Q_OBJECT
 
 public:
     MainWindow();

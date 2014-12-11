@@ -20,7 +20,9 @@ SOURCES += main.cpp\
     hairwindow.cpp \
     facialhairwindow.cpp \
     headwearwindow.cpp \
-    howtowindow.cpp
+    howtowindow.cpp \
+    gamemanager.cpp \
+    communicator.cpp
 
 HEADERS  += mainwindow.h \
     genderwindow.h \
@@ -31,7 +33,9 @@ HEADERS  += mainwindow.h \
     headwearwindow.h \
     howtowindow.h \
     Person.h \
-    TextFile.h
+    TextFile.h \
+    gamemanager.h \
+    communicator.h
 
 FORMS    +=
 

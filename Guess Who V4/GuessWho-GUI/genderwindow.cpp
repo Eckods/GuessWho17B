@@ -1,4 +1,5 @@
 #include "genderwindow.h"
+#include "gamemanager.h"
 #include <QtGui>
 #include <iostream>
 using namespace std;
@@ -39,13 +40,16 @@ GenderWindow::~GenderWindow(){}
 void GenderWindow::isAccepted(){
     // Example for communication with the Game Manager class
     // Replace with variables once class is created
+    QString genderChoice; // variable that holds guess and is sent to gameManager
     if (question1->isChecked()){
-        cout << "Male" << endl;
+        genderChoice="Male";
+        GameManager().guessGender(genderChoice);
         unlockFacialHair = true;
         close();
     }
     else if (question2->isChecked()){
-        cout << "Female" << endl;
+        genderChoice="Female";
+        GameManager().guessGender(genderChoice);
         unlockFacialHair = true;
         close();
     }

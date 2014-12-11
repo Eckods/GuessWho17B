@@ -1,4 +1,5 @@
 #include "hairwindow.h"
+#include "gamemanager.h"
 #include <QtGui>
 #include <iostream>
 using namespace std;
@@ -46,22 +47,29 @@ HairWindow::~HairWindow(){}
 void HairWindow::isAccepted(){
     // Example for communication with the Game Manager class
     // Replace with variables once class is created
+    QString hairChoice; // variable that holds guess and is sent to gameManager
     if (question1->isChecked()){
-        cout << "Blonde hair" << endl;
+        hairChoice="Blonde hair";
+        GameManager().guessHair(hairChoice);
         close();
     }
     else if (question2->isChecked()){
-        cout << "Brown hair" << endl;
+        hairChoice="Brown hair";
+        GameManager().guessHair(hairChoice);
         close();
     }
     else if (question3->isChecked()){
-        cout << "Black hair" << endl;
+        hairChoice="Black hair";
+        GameManager().guessHair(hairChoice);
         close();
     }
     else if (question4->isChecked()){
-        cout << "White/gray hair" << endl;
+        hairChoice="White/gray hair";
+        GameManager().guessHair(hairChoice);
         close();
     }
     else
+    {
        close();
+    }
 }
