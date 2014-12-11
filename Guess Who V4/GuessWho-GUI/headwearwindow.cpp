@@ -1,4 +1,5 @@
 #include "Headwearwindow.h"
+#include "gamemanager.h"
 #include <QtGui>
 #include <iostream>
 using namespace std;
@@ -35,8 +36,10 @@ HeadwearWindow::~HeadwearWindow(){}
 void HeadwearWindow::isAccepted(){
     // Example for communication with the Game Manager class
     // Replace with variables once class is created
+    QString headwearChoice; // variable that holds guess and is sent to gameManager
     if (question1->isChecked()){
-        cout << "Has headwear" << endl;
+        headwearChoice="Has headwear";
+        GameManager().guessHeadWear(headwearChoice);
         close();
     }
     else

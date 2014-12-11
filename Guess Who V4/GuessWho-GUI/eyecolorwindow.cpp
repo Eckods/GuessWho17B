@@ -1,4 +1,5 @@
 #include "eyecolorwindow.h"
+#include "gamemanager.h"
 #include <QtGui>
 #include <iostream>
 using namespace std;
@@ -43,19 +44,24 @@ EyeColorWindow::~EyeColorWindow(){}
 void EyeColorWindow::isAccepted(){
     // Example for communication with the Game Manager class
     // Replace with variables once class is created
+    QString eyeChoice; // variable that holds guess and is sent to gameManager
     if (question1->isChecked()){
-        cout << "Brown eyes" << endl;
+        eyeChoice="Brown eyes";
+        GameManager().guessEyeColor(eyeChoice);
         close();
     }
     else if (question2->isChecked()){
-        cout << "Blue eyes" << endl;
+        eyeChoice="Blue eyes";
+        GameManager().guessEyeColor(eyeChoice);
         close();
     }
     else if (question3->isChecked()){
-        cout << "Green eyes" << endl;
+        eyeChoice="Green eyes";
+        GameManager().guessEyeColor(eyeChoice);
         close();
     }
-    else
+    else{
         close();
+    }
 }
 

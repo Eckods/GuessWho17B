@@ -16,7 +16,8 @@ TextFile text;
 
 void getPeopleData();
 
-MainWindow::MainWindow(){
+MainWindow::MainWindow()
+{
     // Calls each group layout & widget to be created
     createCharGroupBox();
     createQuestionGroupBox();
@@ -39,37 +40,38 @@ MainWindow::MainWindow(){
     // Sets title to window, color, and size
     setWindowTitle(tr("Guess Who"));
     setStyleSheet("QMainWindow{background-color:#1d2020}");
-    setFixedSize(1280,1000);
+    setFixedSize(1280,750);
     showFullScreen();
 }
 
 MainWindow::~MainWindow(){}
 
-void MainWindow::createMainMenuWidget(){
+void MainWindow::createMainMenuWidget()
+{
     // Sets up each menu button along with their styleSheet
     QPushButton *start = new QPushButton(tr("Start"));
     start->setFixedSize(172,48);
     start->setFont(QFont("MS Shell Dlg 2", 11, QFont::Bold));
     start->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
-                        "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
-                        "QPushButton:pressed{background-image:url(:/program/images/Clicked.png);}");
+                         "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
+                         "QPushButton:pressed{background-image:url(:/program/images/Clicked.png);}");
     connect(start, SIGNAL(clicked()), this, SLOT(startButtonClicked()));
 
     QPushButton *howToPlay = new QPushButton(tr("How to Play"));
     howToPlay->setFixedSize(172,48);
     howToPlay->setFont(QFont("MS Shell Dlg 2", 11, QFont::Bold));
     howToPlay->setStyleSheet("QPushButton{background-image:url(:/program/images/About.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
-                        "QPushButton:hover{background-image:url(:/program/images/About-Hover.png);}"
-                        "QPushButton:pressed{background-image:url(:/program/images/About-Clicked.png);}"
-                         "QPushButton:disabled{background-image:url(:/program/images/Quit.png);};");
+                             "QPushButton:hover{background-image:url(:/program/images/About-Hover.png);}"
+                             "QPushButton:pressed{background-image:url(:/program/images/About-Clicked.png);}"
+                             "QPushButton:disabled{background-image:url(:/program/images/Quit.png);};");
     connect(howToPlay, SIGNAL(clicked()), this, SLOT(howToPlayButtonClicked()));
 
     QPushButton *about = new QPushButton(tr("About Guess Who"));
     about->setFixedSize(172,48);
     about->setFont(QFont("MS Shell Dlg 2", 11, QFont::Bold));
     about->setStyleSheet("QPushButton{background-image:url(:/program/images/About.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
-                        "QPushButton:hover{background-image:url(:/program/images/About-Hover.png);}"
-                        "QPushButton:pressed{background-image:url(:/program/images/About-Clicked.png);}");
+                         "QPushButton:hover{background-image:url(:/program/images/About-Hover.png);}"
+                         "QPushButton:pressed{background-image:url(:/program/images/About-Clicked.png);}");
     connect(about, SIGNAL(clicked()), this, SLOT(aboutButtonClicked()));
 
     QPushButton *quit = new QPushButton(tr("Quit"));
@@ -148,28 +150,22 @@ void MainWindow::startButtonClicked(){
     stack->setCurrentIndex(nextPage);
 }
 
+//void MainWindow::chatBox(QString incoming){
+//    replyBox->append(incoming);
+//}
+
 void MainWindow::createGameWidget(){
     // Creates a push button for the Guess who button
     QPushButton *guessWho = new QPushButton(tr(""));
     guessWho->setFixedSize(280,200);
     guessWho->setStyleSheet("QPushButton{background-image:url(:/program/images/Guess.png); border-style: none;}"
-                             "QPushButton:hover{background-image:url(:/program/images/Guess-Hover.png);}"
-                             "QPushButton:pressed{background-image:url(:/program/images/Guess-Clicked.png);}");
+                            "QPushButton:hover{background-image:url(:/program/images/Guess-Hover.png);}"
+                            "QPushButton:pressed{background-image:url(:/program/images/Guess-Clicked.png);}");
     connect(guessWho, SIGNAL(clicked()), this, SLOT(guessWhoClicked()));
 
     // Creates a textBrowser that loads in the opponent's replies
     replyBox = new QTextBrowser;
     replyBox->setFixedSize(300,400);
-
-    QString oppResponse;
-
-    //if (some bool passed from GameManager == true){
-        oppResponse = "<font color='red'>Opponent says</font>: Yes";
-        replyBox->append(oppResponse);
-    //}
-   // else
-       oppResponse = "<font color='blue'>Opponent says</font>: No";
-       replyBox->append(oppResponse);
 
     // Sets up a grid layout for the main window
     QGridLayout *mainLayout = new QGridLayout;
@@ -204,24 +200,24 @@ void MainWindow::createCharGroupBox(){
 
     getPeopleData(); // populate people
     QString hasHeadwear = "";
-//     character array with image loaded from linked list
+    //     character array with image loaded from linked list
     for (int i = 0; i < NumGridRows; i++){
-         for (int j = 0; j < NumGridCols; j++){
-             characters[i][j] = new QPushButton(tr(""));
-             characters[i][j]->setFixedSize(150,134);
-             characters[i][j]->setStyleSheet("QPushButton{"+people[i][j].getImage()+";");
-             if (people[i][j].hasHat() == true)
-                 hasHeadwear = "yes";
-             else
-                 hasHeadwear = "no";
-             characters[i][j]->setToolTip("Name: "+people[i][j].getName()+"\n" + "Gender: "+people[i][j].getGender()+"\n" "Eye Color: "+people[i][j].getEyeColor()+"\n"
-                                            + "Hair Color: "+people[i][j].getHairColor()+"\n" + "Facial Hair: "+people[i][j].getFacialHairType()+"\n" + "Headwear: "+hasHeadwear+"");
-             characters[i][j]->setCheckable(true);
-             connect(characters[i][j], SIGNAL(clicked()), this, SLOT(characterButtonClicked()));
-             layout->addWidget(characters[i][j], i, j);
-//         increment through linked list
-         }
-     }
+        for (int j = 0; j < NumGridCols; j++){
+            characters[i][j] = new QPushButton(tr(""));
+            characters[i][j]->setFixedSize(150,134);
+            characters[i][j]->setStyleSheet("QPushButton{"+people[i][j].getImage()+";");
+            if (people[i][j].hasHat() == true)
+                hasHeadwear = "yes";
+            else
+                hasHeadwear = "no";
+            characters[i][j]->setToolTip("Name: "+people[i][j].getName()+"\n" + "Gender: "+people[i][j].getGender()+"\n" "Eye Color: "+people[i][j].getEyeColor()+"\n"
+                                         + "Hair Color: "+people[i][j].getHairColor()+"\n" + "Facial Hair: "+people[i][j].getFacialHairType()+"\n" + "Headwear: "+hasHeadwear+"");
+            characters[i][j]->setCheckable(true);
+            connect(characters[i][j], SIGNAL(clicked()), this, SLOT(characterButtonClicked()));
+            layout->addWidget(characters[i][j], i, j);
+            //         increment through linked list
+        }
+    }
     charGroupBox->setLayout(layout);
     charGroupBox->setFixedHeight(700);
 }
@@ -274,8 +270,8 @@ void MainWindow::createQuestionGroupBox(){
     headwear->setFixedSize(172,48);
     headwear->setFont(QFont("MS Shell Dlg 2", 11, QFont::Bold));
     headwear->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
-                               "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
-                               "QPushButton:pressed{background-image:url(:/program/images/Clicked.png);}");
+                            "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
+                            "QPushButton:pressed{background-image:url(:/program/images/Clicked.png);}");
     connect(headwear, SIGNAL(clicked()), this, SLOT(headwearButtonClicked()));
 
     // Sets up a 2x3 grid with each button occupying a space
@@ -298,16 +294,16 @@ void MainWindow::createMiscGroupBox(){
     about->setFixedSize(112,36);
     about->setFont(QFont("MS Shell Dlg 2", 9, QFont::Bold));
     about->setStyleSheet("QPushButton{background-image:url(:/program/images/About.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
-                             "QPushButton:hover{background-image:url(:/program/images/About-Hover.png);}"
-                             "QPushButton:pressed{background-image:url(:/program/images/About-Clicked.png);}");
+                         "QPushButton:hover{background-image:url(:/program/images/About-Hover.png);}"
+                         "QPushButton:pressed{background-image:url(:/program/images/About-Clicked.png);}");
     connect(about, SIGNAL(clicked()), this, SLOT(aboutButtonClicked()));
 
     QPushButton *quit = new QPushButton(tr("&Quit"));
     quit->setFixedSize(112,36);
     quit->setFont(QFont("MS Shell Dlg 2", 9, QFont::Bold));
     quit->setStyleSheet("QPushButton{background-image:url(:/program/images/Quit.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
-                             "QPushButton:hover{background-image:url(:/program/images/Quit-Hover.png);}"
-                             "QPushButton:pressed{background-image:url(:/program/images/Quit-Clicked.png);}");
+                        "QPushButton:hover{background-image:url(:/program/images/Quit-Hover.png);}"
+                        "QPushButton:pressed{background-image:url(:/program/images/Quit-Clicked.png);}");
     connect(quit, SIGNAL(clicked()), qApp, SLOT(quit()));
 
     miscLayout->addWidget(about, 0, Qt::AlignHCenter);
@@ -354,19 +350,19 @@ void MainWindow::guessWhoClicked(){
 
 void MainWindow::isAccepted(){
     for (int i = 0; i < NumGridRows; i++){
-         for (int j = 0; j < NumGridCols; j++){
-             // If character is blacked-out, disables the button(makes it non-clickable to user)
-             if (characters[i][j]->isChecked()){
-                 qDebug() << "Cannot Select";
-                 characters[i][j]->setEnabled(false);
-             }
+        for (int j = 0; j < NumGridCols; j++){
+            // If character is blacked-out, disables the button(makes it non-clickable to user)
+            if (characters[i][j]->isChecked()){
+                qDebug() << "Cannot Select";
+                characters[i][j]->setEnabled(false);
+            }
             // If character is not blacked-out, disable checkability(no more blacking-out button)
-             else if(!characters[i][j]->isChecked())
-                 characters[i][j]->setCheckable(false); // To disable blacking out characters during guess selection
+            else if(!characters[i][j]->isChecked())
+                characters[i][j]->setCheckable(false); // To disable blacking out characters during guess selection
 
             // Sends which character was clicked
             connect(characters[i][j], SIGNAL(clicked()), this, SLOT(characterGuessClicked()));
-         }
+        }
     }
 }
 
@@ -376,13 +372,13 @@ void MainWindow::characterGuessClicked(){
     QMessageBox *msgBox = new QMessageBox;
 
     for (int i = 0; i < NumGridRows; i++){
-         for (int j = 0; j < NumGridCols; j++){
-             // If the character clicked is the same as the character in the array, bring up a prompt with their name in it
-             if (clickedButton == characters[i][j]){
-                 charName = people[i][j].getName();
-                 msgBox->setText("<font color='white'>Guess "+charName+ "?</font>");
-             }
-         }
+        for (int j = 0; j < NumGridCols; j++){
+            // If the character clicked is the same as the character in the array, bring up a prompt with their name in it
+            if (clickedButton == characters[i][j]){
+                charName = people[i][j].getName();
+                msgBox->setText("<font color='white'>Guess "+charName+ "?</font>");
+            }
+        }
     }
     QPushButton *yesButton = msgBox->addButton(tr("Yes"), QMessageBox::ActionRole);
     QPushButton *noButton = msgBox->addButton(tr("No"), QMessageBox::RejectRole);
@@ -410,8 +406,8 @@ void MainWindow::isRejected(){
 void MainWindow::reenableCharacterSelection(){
     // Re-enables previous functionality of character buttons before Guess Who button was clicked
     for (int i = 0; i < NumGridRows; i++){
-         for (int j = 0; j < NumGridCols; j++){
-             disconnect(characters[i][j], SIGNAL(clicked()), this, SLOT(characterGuessClicked()));
+        for (int j = 0; j < NumGridCols; j++){
+            disconnect(characters[i][j], SIGNAL(clicked()), this, SLOT(characterGuessClicked()));
 
             if (characters[i][j]->isChecked())
                 characters[i][j]->setEnabled(true);
@@ -420,7 +416,7 @@ void MainWindow::reenableCharacterSelection(){
                 characters[i][j]->setCheckable(true);
 
             connect(characters[i][j], SIGNAL(clicked()), this, SLOT(characterButtonClicked()));
-         }
+        }
     }
 }
 
@@ -549,8 +545,8 @@ void MainWindow::backToMainMenu(){
     if (prevPage >= stack->count()){
         QMessageBox::StandardButton reply;
         reply = QMessageBox::warning(this, "Return",
-                             "Are you sure you want to return to main menu?",
-                             QMessageBox::Yes | QMessageBox::No);
+                                     "Are you sure you want to return to main menu?",
+                                     QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes){
             prevPage = 0;
             stack->setCurrentIndex(prevPage);
@@ -559,14 +555,14 @@ void MainWindow::backToMainMenu(){
     // Leaves the user on Main menu if they are currently on it
     else
         prevPage = 0;
-        stack->setCurrentIndex(prevPage);
+    stack->setCurrentIndex(prevPage);
 }
 
 void MainWindow::createText(){
     // Creates a new process to be called
     QProcess *process = new QProcess;
 
-    #ifdef Q_WS_WIN
+#ifdef Q_WS_WIN
     // Runs the CreateText.exe from debug folder
     process->startDetached("CreateText");
 
@@ -574,9 +570,9 @@ void MainWindow::createText(){
     if (process->waitForStarted() == true){
         qDebug() << "\nRunning CreateText";
     }
-    #endif
+#endif
 
-    #ifdef Q_WS_MACX
+#ifdef Q_WS_MACX
     // Holds the path to the CreateText.exe
     QString path = "open \"/Users/Teramino/Desktop/Qt/build-CreateText-Desktop_Qt_4_8_5-Debug/CreateText.app/Contents/MacOS/CreateText\"";
 
@@ -594,5 +590,5 @@ void MainWindow::createText(){
     if (process->waitForStarted() == true){
         qDebug() << "\nRunning CreateText";
     }
-    #endif
+#endif
 }
