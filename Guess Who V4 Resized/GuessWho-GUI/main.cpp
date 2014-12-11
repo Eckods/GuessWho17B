@@ -8,8 +8,9 @@ int main(int argc, char *argv[])
 
     MainWindow mainwindow;
     GameManager game;
-    mainwindow.show();
     game.start();
+    mainwindow.show();
+
 
     return app.exec();
 }

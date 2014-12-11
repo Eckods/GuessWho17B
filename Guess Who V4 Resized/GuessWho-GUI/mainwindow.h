@@ -8,7 +8,6 @@ class QPushButton;
 class QGroupBox;
 class QTextBrowser;
 class QStackedWidget;
-class QScrollArea;
 
 class MainWindow : public QMainWindow
 {
@@ -70,6 +69,5 @@ private:
     QWidget *mainMenuWidget;
     QWidget *gameWidget;
     QString charName;
-    QScrollArea *scrollArea;
 };
 #endif // MAINWINDOW_H
