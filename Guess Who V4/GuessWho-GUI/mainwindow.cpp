@@ -1,4 +1,6 @@
 #include <QtGui>
+#include<QRect>
+#include<QDesktopWidget>
 #include "mainwindow.h"
 #include "genderwindow.h"
 #include "eyecolorwindow.h"
@@ -13,11 +15,17 @@
 
 Person people[row][col];
 TextFile text;
+QGridLayout *grid;
+int windowHeight;
+int windowWidth;
 
 void getPeopleData();
 
 MainWindow::MainWindow()
 {
+    grid = new QGridLayout(this);
+//    grid->setSpacing(2);
+
     // Calls each group layout & widget to be created
     createCharGroupBox();
     createQuestionGroupBox();
@@ -40,8 +48,12 @@ MainWindow::MainWindow()
     // Sets title to window, color, and size
     setWindowTitle(tr("Guess Who"));
     setStyleSheet("QMainWindow{background-color:#1d2020}");
-    setFixedSize(1280,750);
-    showFullScreen();
+    QRect screenSize = QDesktopWidget().availableGeometry(this);
+    windowWidth = (int) screenSize.width();
+    windowHeight = (int) screenSize.height();
+    setFixedSize(windowWidth, windowHeight);
+    cout << windowWidth << endl;
+    cout << windowHeight << endl;
 }
 
 MainWindow::~MainWindow(){}
@@ -219,7 +231,7 @@ void MainWindow::createCharGroupBox(){
         }
     }
     charGroupBox->setLayout(layout);
-    charGroupBox->setFixedHeight(700);
+    charGroupBox->setFixedHeight(450);
 }
 
 void MainWindow::createQuestionGroupBox(){
@@ -310,7 +322,7 @@ void MainWindow::createMiscGroupBox(){
     miscLayout->addWidget(quit, 0, Qt::AlignHCenter);
 
     miscGroupBox->setLayout(miscLayout);
-    miscGroupBox->setFixedWidth(160);
+    miscGroupBox->setFixedSize(160, 100);
 }
 
 void MainWindow::createYourCharGroupBox(){
