@@ -169,7 +169,9 @@ void MainWindow::startButtonClicked(){
 void MainWindow::createGameWidget(){
     // Creates a push button for the Guess who button
     QPushButton *guessWho = new QPushButton(tr(""));
-    guessWho->setFixedSize(280,200);
+    int guessWhoWidth = 280;
+    int guessWhoHeight = 200;
+    guessWho->setFixedSize(guessWhoWidth, guessWhoHeight);
     guessWho->setStyleSheet("QPushButton{background-image:url(:/program/images/Guess.png); border-style: none;}"
                             "QPushButton:hover{background-image:url(:/program/images/Guess-Hover.png);}"
                             "QPushButton:pressed{background-image:url(:/program/images/Guess-Clicked.png);}");
@@ -177,7 +179,7 @@ void MainWindow::createGameWidget(){
 
     // Creates a textBrowser that loads in the opponent's replies
     replyBox = new QTextBrowser;
-    replyBox->setFixedSize(300,400);
+    replyBox->setFixedSize(300,350);
 
     // Sets up a grid layout for the main window
     QGridLayout *mainLayout = new QGridLayout;
@@ -191,11 +193,11 @@ void MainWindow::createGameWidget(){
     mainLayout->addItem(vertSpacer, 0, 0, 1, 3);
     mainLayout->addWidget(charGroupBox, 1, 0, 3, 3);
     mainLayout->addItem(vertSpacer2, 4, 0, 1, 3);
-    mainLayout->addWidget(questionGroupBox, 5, 0, 2, 2);
-    mainLayout->addWidget(guessWho, 5, 2, 2, 1, Qt::AlignRight);
+    mainLayout->addWidget(questionGroupBox, 7, 0, 2, 2);
+    mainLayout->addWidget(guessWho, 7, 2, 2, 1, Qt::AlignRight);
     mainLayout->addWidget(yourCharGroupBox, 1, 3, 1, 1, Qt::AlignHCenter);
     mainLayout->addWidget(replyBox, 2, 3, 2, 1, Qt::AlignHCenter);
-    mainLayout->addWidget(miscGroupBox, 5, 3, 2, 1, Qt::AlignHCenter);
+    mainLayout->addWidget(miscGroupBox, 7, 3, 2, 1, Qt::AlignHCenter);
     mainLayout->addItem(vertSpacer3, 7, 0, 1, 3);
 
     gameWidget = new QWidget;
@@ -231,7 +233,7 @@ void MainWindow::createCharGroupBox(){
         }
     }
     charGroupBox->setLayout(layout);
-    charGroupBox->setFixedHeight(450);
+    charGroupBox->setFixedHeight(600);
 }
 
 void MainWindow::createQuestionGroupBox(){
@@ -240,11 +242,14 @@ void MainWindow::createQuestionGroupBox(){
     questionGroupBox->setStyleSheet("QGroupBox{color:white}");
     questionGroupBox->setFont(QFont("MS Shell Dlg 2", 9, QFont::Bold));
 
+    int questionGroupBoxHeight = 100;
+    int buttonHeight = 30;
+    int buttonWidth = 150;
     QGridLayout *quesLayout = new QGridLayout;
 
     // Sets up each question button along with their styleSheet
     QPushButton *hair = new QPushButton(tr("&Hair"));
-    hair->setFixedSize(172,48);
+    hair->setFixedSize(buttonWidth, buttonHeight);
     hair->setFont(QFont("MS Shell Dlg 2", 11, QFont::Bold));
     hair->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
                         "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
@@ -253,7 +258,7 @@ void MainWindow::createQuestionGroupBox(){
     connect(hair, SIGNAL(clicked()), this, SLOT(hairButtonClicked()));
 
     QPushButton *gender = new QPushButton(tr("&Gender"));
-    gender->setFixedSize(172,48);
+    gender->setFixedSize(buttonWidth, buttonHeight);
     gender->setFont(QFont("MS Shell Dlg 2", 11, QFont::Bold));
     gender->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
                           "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
@@ -261,7 +266,7 @@ void MainWindow::createQuestionGroupBox(){
     connect(gender, SIGNAL(clicked()), this, SLOT(genderButtonClicked()));
 
     QPushButton *eyeColor = new QPushButton(tr("&Eye Color"));
-    eyeColor->setFixedSize(172,48);
+    eyeColor->setFixedSize(buttonWidth, buttonHeight);
     eyeColor->setFont(QFont("MS Shell Dlg 2", 11, QFont::Bold));
     eyeColor->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
                             "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
@@ -269,7 +274,7 @@ void MainWindow::createQuestionGroupBox(){
     connect(eyeColor, SIGNAL(clicked()), this, SLOT(eyeColorButtonClicked()));
 
     facialHair = new QPushButton(tr("&Facial Hair"));
-    facialHair->setFixedSize(172,48);
+    facialHair->setFixedSize(buttonWidth, buttonHeight);
     facialHair->setFont(QFont("MS Shell Dlg 2", 11, QFont::Bold));
     facialHair->setEnabled(false);
     facialHair->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
@@ -279,7 +284,7 @@ void MainWindow::createQuestionGroupBox(){
     connect(facialHair, SIGNAL(clicked()), this, SLOT(facialHairButtonClicked()));
 
     QPushButton *headwear = new QPushButton(tr("&Headwear"));
-    headwear->setFixedSize(172,48);
+    headwear->setFixedSize(buttonWidth,buttonHeight);
     headwear->setFont(QFont("MS Shell Dlg 2", 11, QFont::Bold));
     headwear->setStyleSheet("QPushButton{background-image:url(:/program/images/Default.png); color: white; border-width: 3px; border-color: #181D1F; border-style: outset; border-radius: 7;}"
                             "QPushButton:hover{background-image:url(:/program/images/Hover.png);}"
@@ -293,6 +298,7 @@ void MainWindow::createQuestionGroupBox(){
     quesLayout->addWidget(facialHair, 1, 0, 1, 1);
     quesLayout->addWidget(headwear, 1, 2, 1, 1);
     questionGroupBox->setLayout(quesLayout);
+    questionGroupBox->setFixedHeight(questionGroupBoxHeight);
 }
 
 void MainWindow::createMiscGroupBox(){
