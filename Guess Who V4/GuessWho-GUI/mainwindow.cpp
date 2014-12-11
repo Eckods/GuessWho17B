@@ -13,8 +13,6 @@
 
 Person people[row][col];
 TextFile text;
-int windowHeight;
-int windowWidth;
 
 void getPeopleData();
 
@@ -32,27 +30,33 @@ MainWindow::MainWindow()
     stack = new QStackedWidget;
     stack->addWidget(mainMenuWidget);
     stack->addWidget(gameWidget);
-    setCentralWidget(stack);
-    stack->setStyleSheet("QStackedWidget{background: transparent;}");
+
     // Creates the menu and status bar for the main window
     createActions();
     createMenu();
     createStatusBar();
-    scrollArea = new QScrollArea;
-    scrollArea->setWidget(stack);
-    scrollArea->setStyleSheet("QScrollArea{background: transparent;}");
-    //scrollArea->alignment(Qt::AlignCenter);
-    scrollArea->setAlignment(Qt::AlignCenter);
-    //scrollAreaContents->setStyleSheet("background-color:transparent;");
-    setCentralWidget(scrollArea);
+
+    QRect screenSize = QDesktopWidget().availableGeometry(this);
+    int windowHeight = (int) screenSize.height();
+    int windowWidth = (int) screenSize.width();
+    qDebug() << windowHeight << "  " << windowWidth;
+    if (windowHeight < 1010 || windowWidth < 1280){
+        stack->setStyleSheet("QStackedWidget{background: transparent;}");
+        scrollArea = new QScrollArea;
+        scrollArea->setWidget(stack);
+        scrollArea->setStyleSheet("QScrollArea{background: transparent;}");
+        scrollArea->setAlignment(Qt::AlignCenter);
+        setCentralWidget(scrollArea);
+    }
+    else if (windowHeight >= 1010 && windowWidth >= 1280){
+        setCentralWidget(stack);
+    }
 
     // Sets title to window, color, and size
     setWindowTitle(tr("Guess Who"));
     setStyleSheet("QMainWindow{background-color:#1d2020}");
-    QRect screenSize = QDesktopWidget().availableGeometry(this);
-    windowWidth = (int) screenSize.width();
-    windowHeight = (int) screenSize.height();
     setFixedSize(windowWidth, windowHeight);
+    showFullScreen();
 
 }
 
