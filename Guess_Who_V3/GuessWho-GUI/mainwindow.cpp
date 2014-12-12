@@ -37,10 +37,10 @@ MainWindow::MainWindow(){
     createStatusBar();
 
     // Sets title to window, color, and size
-    setWindowTitle(tr("Guess Who"));
+    setWindowTitle(tr("Go Fish"));
     setStyleSheet("QMainWindow{background-color:#1d2020}");
     setFixedSize(1280,1000);
-    showFullScreen();
+//    showFullScreen();
 }
 
 MainWindow::~MainWindow(){}

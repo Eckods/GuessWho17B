@@ -1,0 +1,240 @@
+1
+Elena
+female
+blue
+blonde
+0
+none
+0
+background-image:url(:/program/Sheet/Characters1.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters1-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters1-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters1-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters1-Disabled.png);}
+
+1
+Sephiroth
+male
+green
+white
+0
+none
+0
+background-image:url(:/program/Sheet/Characters2.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters2-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters2-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters2-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters2-Disabled.png);}
+
+1
+Haytham
+male
+blue
+brown
+0
+none
+1
+background-image:url(:/program/Sheet/Characters3.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters3-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters3-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters3-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters3-Disabled.png);}
+
+1
+Peach
+female
+brown
+blonde
+0
+none
+1
+background-image:url(:/program/Sheet/Characters4.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters4-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters4-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters4-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters4-Disabled.png);}
+
+1
+Xion
+female
+brown
+black
+0
+none
+0
+background-image:url(:/program/Sheet/Characters5.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters5-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters5-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters5-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters5-Disabled.png);}
+
+1
+Dante
+male
+brown
+white
+0
+none
+0
+background-image:url(:/program/Sheet/Characters6.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters6-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters6-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters6-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters6-Disabled.png);}
+
+1
+Ocelot
+male
+brown
+white
+1
+beard
+0
+background-image:url(:/program/Sheet/Characters7.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters7-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters7-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters7-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters7-Disabled.png);}
+
+1
+Lara
+female
+blue
+brown
+0
+none
+0
+background-image:url(:/program/Sheet/Characters8.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters8-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters8-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters8-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters8-Disabled.png);}
+
+1
+Luigi
+male
+brown
+brown
+1
+mustache
+1
+background-image:url(:/program/Sheet/Characters9.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters9-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters9-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters9-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters9-Disabled.png);}
+
+1
+Rikku
+female
+green
+blonde
+0
+none
+1
+background-image:url(:/program/Sheet/Characters10.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters10-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters10-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters10-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters10-Disabled.png);}
+
+1
+Adam
+male
+green
+black
+1
+beard
+0
+background-image:url(:/program/Sheet/Characters11.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters11-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters11-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters11-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters11-Disabled.png);}
+
+1
+Link
+male
+brown
+blonde
+0
+none
+1
+background-image:url(:/program/Sheet/Characters12.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters12-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters12-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters12-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters12-Disabled.png);}
+
+1
+Samus
+female
+brown
+blonde
+0
+none
+0
+background-image:url(:/program/Sheet/Characters13.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters13-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters13-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters13-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters13-Disabled.png);}
+
+1
+Geralt
+male
+blue
+white
+1
+beard
+0
+background-image:url(:/program/Sheet/Characters14.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters14-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters14-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters14-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters14-Disabled.png);}
+
+1
+Waluigi
+male
+blue
+brown
+1
+mustache
+1
+background-image:url(:/program/Sheet/Characters15.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters15-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters15-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters15-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters15-Disabled.png);}
+
+1
+Shiek
+female
+blue
+blonde
+0
+none
+1
+background-image:url(:/program/Sheet/Characters16.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters16-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters16-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters16-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters16-Disabled.png);}
+
+1
+Connor
+male
+blue
+brown
+0
+none
+0
+background-image:url(:/program/Sheet/Characters17.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters17-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters17-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters17-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters17-Disabled.png);}
+
+1
+Aerith
+female
+green
+brown
+0
+none
+0
+background-image:url(:/program/Sheet/Characters18.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters18-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters18-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters18-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters18-Disabled.png);}
+
+1
+Chloe
+female
+green
+black
+0
+none
+0
+background-image:url(:/program/Sheet/Characters19.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters19-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters19-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters19-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters19-Disabled.png);}
+
+1
+Little Mac
+male
+green
+black
+0
+none
+0
+background-image:url(:/program/Sheet/Characters20.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters20-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters20-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters20-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters20-Disabled.png);}
+
+1
+Lee
+male
+blue
+white
+0
+none
+0
+background-image:url(:/program/Sheet/Characters21.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters21-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters21-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters21-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters21-Disabled.png);}
+
+1
+Snake
+male
+green
+brown
+1
+beard
+1
+background-image:url(:/program/Sheet/Characters22.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters22-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters22-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters22-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters22-Disabled.png);}
+
+1
+Faith
+female
+blue
+black
+0
+none
+0
+background-image:url(:/program/Sheet/Characters23.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters23-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters23-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters23-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters23-Disabled.png);}
+
+1
+Dr. Mario
+male
+brown
+brown
+1
+mustache
+1
+background-image:url(:/program/Sheet/Characters24.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}QPushButton:hover{background-image:url(:/program/Sheet/Characters24-Hover.png);}QPushButton:pressed{background-image:url(:/program/Sheet/Characters24-Disabled.png);}QPushButton:checked{background-image:url(:/program/Sheet/Characters24-Disabled.png);}QPushButton:disabled{background-image:url(:/program/Sheet/Characters24-Disabled.png);}
+

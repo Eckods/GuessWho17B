@@ -8,6 +8,7 @@ class QPushButton;
 class QGroupBox;
 class QTextBrowser;
 class QStackedWidget;
+class QScrollArea;
 
 class MainWindow : public QMainWindow
 {
@@ -34,6 +35,7 @@ private slots:
     void isRejected();
     void isGuessed();
     void characterGuessClicked();
+    void highScoresButtonClicked();
 
 private:
     void createCharGroupBox();
@@ -67,5 +69,6 @@ private:
     QWidget *mainMenuWidget;
     QWidget *gameWidget;
     QString charName;
+    QScrollArea *scrollArea;
 };
 #endif // MAINWINDOW_H
