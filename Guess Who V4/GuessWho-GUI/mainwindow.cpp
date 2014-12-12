@@ -59,7 +59,7 @@ MainWindow::MainWindow()
     setWindowTitle(tr("Guess Who"));
     setStyleSheet("QMainWindow{background-color:#1d2020}");
     setFixedSize(windowWidth, windowHeight);
-//    showFullScreen();
+    //showFullScreen();
 
 }
 
@@ -341,12 +341,10 @@ void MainWindow::createYourCharGroupBox(){
     QVBoxLayout *yourCharLayout = new QVBoxLayout;
     yourCharacter = new QPushButton(tr(""));
     yourCharacter->setFixedSize(150,134);
-    yourCharacter->setCheckable(true);
-    // Testing out the character image
-    yourCharacter->setStyleSheet(Mycharacter.getImage());
+    //yourCharacter->setCheckable(true);
+    yourCharacter->setStyleSheet("QPushButton{"+Mycharacter.getImage()+";");
     connect(yourCharacter, SIGNAL(clicked()), this, SLOT(characterButtonClicked()));
 
-    //yourCharacter->setChecked(true);
     yourCharLayout->addWidget(yourCharacter, 0 , Qt::AlignHCenter);
 
     yourCharGroupBox->setLayout(yourCharLayout);

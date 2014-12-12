@@ -73,10 +73,10 @@ void GameManager::recieveEyeCheck(QString recieveGuess){
     std::cout<<"A: "<<A.toStdString()<<std::endl;
     std::cout<<"B: "<<B.toStdString()<<std::endl;
     if(x==0){
-        sendAnswer = "<font color='red'>Opponent says</font>: Yes";
+        sendAnswer = "<font color='blue'>Opponent says</font>: Yes";
     }
     else{
-        sendAnswer = "<font color='blue'>Opponent says</font>: No";
+        sendAnswer = "<font color='red'>Opponent says</font>: No";
     }
     chatBox(sendAnswer);
 }
@@ -93,14 +93,14 @@ void GameManager::recieveFacialHairCheck(QString recieveGuess){
         std::cout<<"A: "<<A.toStdString()<<std::endl;
         std::cout<<"B: "<<B.toStdString()<<std::endl;
         if(x==0){
-            sendAnswer = "<font color='red'>Opponent says</font>: Yes";
+            sendAnswer = "<font color='blue'>Opponent says</font>: Yes";
         }
         else{
-            sendAnswer = "<font color='blue'>Opponent says</font>: No";
+            sendAnswer = "<font color='red'>Opponent says</font>: No";
         }
     }
     else if(!characterProfile.hasFacialHair()){
-        sendAnswer = "<font color='blue'>Opponent says</font>: No";
+        sendAnswer = "<font color='red'>Opponent says</font>: No";
     }
     chatBox(sendAnswer);
 }
@@ -116,10 +116,10 @@ void GameManager::recieveGenderCheck(QString recieveGuess){
     std::cout<<"A: "<<A.toStdString()<<std::endl;
     std::cout<<"B: "<<B.toStdString()<<std::endl;
     if(x==0){
-        sendAnswer = "<font color='red'>Opponent says</font>: Yes";
+        sendAnswer = "<font color='blue'>Opponent says</font>: Yes";
     }
     else{
-        sendAnswer = "<font color='blue'>Opponent says</font>: No";
+        sendAnswer = "<font color='red'>Opponent says</font>: No";
     }
     //    std::cout<<"C: "<<characterProfile.getName().toStdString()<<std::endl;
     chatBox(sendAnswer);
@@ -136,10 +136,10 @@ void GameManager::recieveHairCheck(QString recieveGuess){
     std::cout<<"A: "<<A.toStdString()<<std::endl;
     std::cout<<"B: "<<B.toStdString()<<std::endl;
     if(x==0){
-        sendAnswer = "<font color='red'>Opponent says</font>: Yes";
+        sendAnswer = "<font color='blue'>Opponent says</font>: Yes";
     }
     else{
-        sendAnswer = "<font color='blue'>Opponent says</font>: No";
+        sendAnswer = "<font color='red'>Opponent says</font>: No";
     }
     chatBox(sendAnswer);
 }
@@ -147,10 +147,10 @@ void GameManager::recieveHairCheck(QString recieveGuess){
 void GameManager::recieveHeadWearCheck(){
     QString sendAnswer;
     if(characterProfile.hasHat()){
-        sendAnswer = "<font color='red'>Opponent says</font>: Yes";
+        sendAnswer = "<font color='blue'>Opponent says</font>: Yes";
     }
     else if(!characterProfile.hasHat()){
-        sendAnswer = "<font color='blue'>Opponent says</font>: No";
+        sendAnswer = "<font color='red'>Opponent says</font>: No";
     }
     chatBox(sendAnswer);
 }
