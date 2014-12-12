@@ -65,7 +65,6 @@ private:
     QMenu *gameMenu;
     QMenu *aboutMenu;
     QMenu *miscMenu;
-    QTextBrowser *replyBox;
     QStackedWidget *stack;
     QWidget *mainMenuWidget;
     QWidget *gameWidget;

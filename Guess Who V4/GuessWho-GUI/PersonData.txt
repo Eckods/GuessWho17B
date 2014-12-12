@@ -1,7 +1,7 @@
 1
 Elena
 female
-blue
+brown
 blonde
 0
 none
@@ -21,7 +21,7 @@ background-image:url(:/program/Sheet/Characters2.png); border-width: 1px; border
 1
 Haytham
 male
-blue
+brown
 brown
 0
 none
@@ -31,7 +31,7 @@ background-image:url(:/program/Sheet/Characters3.png); border-width: 1px; border
 1
 Peach
 female
-brown
+blue
 blonde
 0
 none
@@ -41,7 +41,7 @@ background-image:url(:/program/Sheet/Characters4.png); border-width: 1px; border
 1
 Xion
 female
-brown
+blue
 black
 0
 none
@@ -51,7 +51,7 @@ background-image:url(:/program/Sheet/Characters5.png); border-width: 1px; border
 1
 Dante
 male
-brown
+blue
 white
 0
 none
@@ -61,7 +61,7 @@ background-image:url(:/program/Sheet/Characters6.png); border-width: 1px; border
 1
 Ocelot
 male
-brown
+blue
 white
 1
 beard
@@ -81,7 +81,7 @@ background-image:url(:/program/Sheet/Characters8.png); border-width: 1px; border
 1
 Luigi
 male
-brown
+blue
 brown
 1
 mustache
@@ -111,7 +111,7 @@ background-image:url(:/program/Sheet/Characters11.png); border-width: 1px; borde
 1
 Link
 male
-brown
+blue
 blonde
 0
 none
@@ -121,7 +121,7 @@ background-image:url(:/program/Sheet/Characters12.png); border-width: 1px; borde
 1
 Samus
 female
-brown
+blue
 blonde
 0
 none
@@ -131,7 +131,7 @@ background-image:url(:/program/Sheet/Characters13.png); border-width: 1px; borde
 1
 Geralt
 male
-blue
+brown
 white
 1
 beard
@@ -221,7 +221,7 @@ background-image:url(:/program/Sheet/Characters22.png); border-width: 1px; borde
 1
 Faith
 female
-blue
+brown
 black
 0
 none
@@ -231,7 +231,7 @@ background-image:url(:/program/Sheet/Characters23.png); border-width: 1px; borde
 1
 Dr. Mario
 male
-brown
+blue
 brown
 1
 mustache

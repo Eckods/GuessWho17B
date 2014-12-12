@@ -14,7 +14,6 @@
 
 using namespace std;
 
-
 const QString file =":/program/PersonData.txt";
 const int row = 4;
 const int col = 6;

@@ -41,24 +41,32 @@ void GenderWindow::isAccepted(){
     // Example for communication with the Game Manager class
     // Replace with variables once class is created
     QString genderChoice; // variable that holds guess and is sent to gameManager
-    if (question1->isChecked()){
-        genderChoice="Male";
-        GameManager().guessGender(genderChoice);
-        unlockFacialHair = true;
-        close();
-    }
-    else if (question2->isChecked()){
-        genderChoice="Female";
-        GameManager().guessGender(genderChoice);
-        unlockFacialHair = true;
-        close();
-    }
-    else
-        if(unlockFacialHair == true){
+
+    QString systemMessage;
+    if(GameManager::instance()->playerTurn){
+        if (question1->isChecked()){
+            genderChoice="male";
+            GameManager::instance()->guessGender(genderChoice);
+            unlockFacialHair = true;
             close();
         }
-        else
-        unlockFacialHair = false;
-        close();
+        else if (question2->isChecked()){
+            genderChoice="female";
+            GameManager::instance()->guessGender(genderChoice);
+            unlockFacialHair = true;
+            close();
+        }
+        else if(unlockFacialHair == true){
+            close();
+        }
+        else{
+            unlockFacialHair = false;
+            close();
+        }
+    }
+    else{
+        systemMessage = "<font color='green'>Message from the boss:</font> Not your move, bro";
+        GameManager::instance()->chatBox(systemMessage);
+    }
 }
 
