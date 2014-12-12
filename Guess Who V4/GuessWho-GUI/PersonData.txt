@@ -71,7 +71,7 @@ background-image:url(:/program/Sheet/Characters7.png); border-width: 1px; border
 1
 Lara
 female
-blue
+brown
 brown
 0
 none
