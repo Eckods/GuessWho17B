@@ -44,24 +44,31 @@ EyeColorWindow::~EyeColorWindow(){}
 void EyeColorWindow::isAccepted(){
     // Example for communication with the Game Manager class
     // Replace with variables once class is created
-    QString eyeChoice; // variable that holds guess and is sent to gameManager
-    if (question1->isChecked()){
-        eyeChoice="Brown eyes";
-        GameManager().guessEyeColor(eyeChoice);
-        close();
-    }
-    else if (question2->isChecked()){
-        eyeChoice="Blue eyes";
-        GameManager().guessEyeColor(eyeChoice);
-        close();
-    }
-    else if (question3->isChecked()){
-        eyeChoice="Green eyes";
-        GameManager().guessEyeColor(eyeChoice);
-        close();
+    QString systemMessage;
+    if(GameManager::instance()->playerTurn){
+        QString eyeChoice; // variable that holds guess and is sent to gameManager
+        if (question1->isChecked()){
+            eyeChoice="brown";
+            GameManager::instance()->guessEyeColor(eyeChoice);
+            close();
+        }
+        else if (question2->isChecked()){
+            eyeChoice="blue";
+            GameManager::instance()->guessEyeColor(eyeChoice);
+            close();
+        }
+        else if (question3->isChecked()){
+            eyeChoice="green";
+            GameManager::instance()->guessEyeColor(eyeChoice);
+            close();
+        }
+        else{
+            close();
+        }
     }
     else{
-        close();
+    systemMessage = "<font color='green'>Message from the boss:</font> Not your move, bro";
+    GameManager::instance()->chatBox(systemMessage);
     }
 }
 

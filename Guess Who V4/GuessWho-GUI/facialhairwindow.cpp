@@ -40,17 +40,26 @@ FacialHairWindow::~FacialHairWindow(){}
 void FacialHairWindow::isAccepted(){
     // Example for communication with the Game Manager class
     // Replace with variables once class is created
-    QString facialHairChoice; // variable that holds guess and is sent to gameManager
-    if (question1->isChecked()){
-        facialHairChoice="Mustache";
-        GameManager().guessFacialHair(facialHairChoice);
-        close();
+    QString systemMessage;
+    if(GameManager::instance()->playerTurn){
+        QString facialHairChoice; // variable that holds guess and is sent to gameManager
+
+        if (question1->isChecked()){
+            facialHairChoice="Mustache";
+            GameManager::instance()->guessFacialHair(facialHairChoice);
+            close();
+        }
+        else if (question2->isChecked()){
+            facialHairChoice="Beard";
+            GameManager::instance()->guessFacialHair(facialHairChoice);
+            close();
+        }
+        else{
+            close();
+        }
     }
-    else if (question2->isChecked()){
-        facialHairChoice="Beard";
-        GameManager().guessFacialHair(facialHairChoice);
-        close();
+    else{
+        systemMessage = "<font color='green'>Message from the boss:</font> Not your move, bro";
+        GameManager::instance()->chatBox(systemMessage);
     }
-    else
-        close();
 }

@@ -47,29 +47,37 @@ HairWindow::~HairWindow(){}
 void HairWindow::isAccepted(){
     // Example for communication with the Game Manager class
     // Replace with variables once class is created
-    QString hairChoice; // variable that holds guess and is sent to gameManager
-    if (question1->isChecked()){
-        hairChoice="Blonde hair";
-        GameManager().guessHair(hairChoice);
-        close();
+    QString systemMessage;
+    if(GameManager::instance()->playerTurn){
+        QString hairChoice; // variable that holds guess and is sent to gameManager
+        if (question1->isChecked()){
+            hairChoice="blonde";
+            GameManager::instance()->guessHair(hairChoice);
+            close();
+        }
+        else if (question2->isChecked()){
+            hairChoice="brown";
+            GameManager::instance()->guessHair(hairChoice);
+            close();
+        }
+        else if (question3->isChecked()){
+            hairChoice="black";
+            GameManager::instance()->guessHair(hairChoice);
+            close();
+        }
+        else if (question4->isChecked()){
+            hairChoice="white";
+            GameManager::instance()->guessHair(hairChoice);
+            close();
+        }
+        else
+        {
+            close();
+        }
+
     }
-    else if (question2->isChecked()){
-        hairChoice="Brown hair";
-        GameManager().guessHair(hairChoice);
-        close();
-    }
-    else if (question3->isChecked()){
-        hairChoice="Black hair";
-        GameManager().guessHair(hairChoice);
-        close();
-    }
-    else if (question4->isChecked()){
-        hairChoice="White/gray hair";
-        GameManager().guessHair(hairChoice);
-        close();
-    }
-    else
-    {
-       close();
+    else{
+        systemMessage = "<font color='green'>Message from the boss:</font> Not your move, bro";
+        GameManager::instance()->chatBox(systemMessage);
     }
 }

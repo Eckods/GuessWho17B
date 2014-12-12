@@ -36,12 +36,16 @@ HeadwearWindow::~HeadwearWindow(){}
 void HeadwearWindow::isAccepted(){
     // Example for communication with the Game Manager class
     // Replace with variables once class is created
-    QString headwearChoice; // variable that holds guess and is sent to gameManager
-    if (question1->isChecked()){
-        headwearChoice="Has headwear";
-        GameManager().guessHeadWear(headwearChoice);
-        close();
+
+    QString systemMessage;
+    if(GameManager::instance()->playerTurn){
+        if (question1->isChecked()){
+            GameManager::instance()->guessHeadWear();
+            close();
+        }
     }
-    else
-        close();
+    else{
+        systemMessage = "<font color='green'>Message from the boss:</font> Not your move, bro";
+        GameManager::instance()->chatBox(systemMessage);
+    }
 }
