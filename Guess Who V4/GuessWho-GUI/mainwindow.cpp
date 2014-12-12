@@ -39,6 +39,7 @@ MainWindow::MainWindow()
     QRect screenSize = QDesktopWidget().availableGeometry(this);
     int windowHeight = (int) screenSize.height();
     int windowWidth = (int) screenSize.width();
+
     qDebug() << windowHeight << "  " << windowWidth;
     if (windowHeight < 1010 || windowWidth < 1280){
         stack->setStyleSheet("QStackedWidget{background: transparent;}");
@@ -56,7 +57,7 @@ MainWindow::MainWindow()
     setWindowTitle(tr("Guess Who"));
     setStyleSheet("QMainWindow{background-color:#1d2020}");
     setFixedSize(windowWidth, windowHeight);
-    showFullScreen();
+//    showFullScreen();
 
 }
 
