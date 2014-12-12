@@ -12,12 +12,14 @@
 #include "highscorewindow.h"
 
 Person people[row][col];
+static Person Mycharacter;
 TextFile text;
 
 void getPeopleData();
 
 MainWindow::MainWindow()
 {
+    srand(time(NULL));
     // Calls each group layout & widget to be created
     createCharGroupBox();
     createQuestionGroupBox();
@@ -180,10 +182,6 @@ void MainWindow::createGameWidget(){
                             "QPushButton:pressed{background-image:url(:/program/images/Guess-Clicked.png);}");
     connect(guessWho, SIGNAL(clicked()), this, SLOT(guessWhoClicked()));
 
-    // Creates a textBrowser that loads in the opponent's replies
-    replyBox = new QTextBrowser;
-    replyBox->setFixedSize(300,400);
-
     // Sets up a grid layout for the main window
     QGridLayout *mainLayout = new QGridLayout;
 
@@ -199,7 +197,7 @@ void MainWindow::createGameWidget(){
     mainLayout->addWidget(questionGroupBox, 5, 0, 2, 2);
     mainLayout->addWidget(guessWho, 5, 2, 2, 1, Qt::AlignRight);
     mainLayout->addWidget(yourCharGroupBox, 1, 3, 1, 1, Qt::AlignHCenter);
-    mainLayout->addWidget(replyBox, 2, 3, 2, 1, Qt::AlignHCenter);
+    mainLayout->addWidget(GameManager::instance()->replyBox, 2, 3, 2, 1, Qt::AlignHCenter);
     mainLayout->addWidget(miscGroupBox, 5, 3, 2, 1, Qt::AlignHCenter);
     mainLayout->addItem(vertSpacer3, 7, 0, 1, 3);
 
@@ -216,6 +214,11 @@ void MainWindow::createCharGroupBox(){
     QGridLayout *layout = new QGridLayout;
 
     getPeopleData(); // populate people
+    int randomRow = rand() % 4;
+    int randomCol = rand() % 6;
+    Mycharacter = people[randomRow][randomCol];
+    GameManager::instance()->setPlayerPerson(Mycharacter);
+
     QString hasHeadwear = "";
     //     character array with image loaded from linked list
     for (int i = 0; i < NumGridRows; i++){
@@ -340,10 +343,7 @@ void MainWindow::createYourCharGroupBox(){
     yourCharacter->setFixedSize(150,134);
     yourCharacter->setCheckable(true);
     // Testing out the character image
-    yourCharacter->setStyleSheet("QPushButton{background-image:url(:/program/Sheet/Characters1.png); border-width: 1px; border-color: #181D1F; border-style: outset; border-radius: 5;}"
-                                 "QPushButton:hover{background-image:url(:/program/Sheet/Characters1-Hover.png);}"
-                                 "QPushButton:pressed{background-image:url(:/program/Sheet/Characters1-Disabled.png);}"
-                                 "QPushButton:checked{background-image:url(:/program/Sheet/Characters1-Disabled.png);}");
+    yourCharacter->setStyleSheet(Mycharacter.getImage());
     connect(yourCharacter, SIGNAL(clicked()), this, SLOT(characterButtonClicked()));
 
     //yourCharacter->setChecked(true);
